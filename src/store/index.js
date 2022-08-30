@@ -29,6 +29,12 @@ export default createStore({
     },
   },
   actions: {
+    getUser: async (context, id) => {
+      fetch("http://localhost:3050/users/:id" + id)
+        .then((res) => res.json())
+        .then((json) => context.commit("setUser", json))
+        .catch((err) => console.log(err.message));
+    },
     getUsers: async (context) => {
       // fetch("https://xcjewels.herokuapp.com/users")
       fetch("http://localhost:3050/users")
@@ -89,6 +95,25 @@ export default createStore({
           // context.commit("setUser", json));
         });
     },
+    // PROJECTS
+    // SHOW ALL OF EM PROJECTS
+    getProjects: async (context) => {
+      fetch("http://localhost:3050/projects")
+        .then((response) => response.json())
+        .then((json) => context.commit("setProjects", json));
+    },
+
+    // SHOW ONE PROJECT
+    getProject: async (context, id) => {
+      console.log(id);
+      fetch("http://localhost:3050/projects/" + id)
+        .then((response) => response.json())
+        .then((data) => {
+          console.log(data);
+          context.commit("setProjects", data);
+        });
+    },
   },
+
   modules: {},
 });
