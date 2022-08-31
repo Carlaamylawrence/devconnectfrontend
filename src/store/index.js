@@ -110,8 +110,40 @@ export default createStore({
         .then((response) => response.json())
         .then((data) => {
           console.log(data);
-          context.commit("setProjects", data);
+          context.commit("setProject", data);
         });
+    },
+
+    updateUserInfo: async (context, id) => {
+      console.log(id);
+      const {
+        fullname,
+        email,
+        password,
+        experience,
+        availabilty,
+        portUrl,
+        githubUrl,
+        userRole,
+      } = user;
+      fetch("http://localhost:3050/users/:id" + id, {
+        method: "PATCH",
+        body: JSON.stringify({
+          fullname: fullname,
+          email: email,
+          password: password,
+          experience: experience,
+          availabilty: availabilty,
+          portUrl: portUrl,
+          githubUrl: githubUrl,
+          userRole: userRole,
+        }),
+        headers: {
+          "Content-type": "application/json; charset=UTF-8",
+        },
+      })
+        .then((response) => response.json())
+        .then((json) => context.commit("setUser", json));
     },
   },
 

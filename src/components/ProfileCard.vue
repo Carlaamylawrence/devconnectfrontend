@@ -3,14 +3,60 @@
     <section id="specials" class="specials">
       <div class="container">
         <div class="section-title text-center">
-          <h3>HI, I am</h3>
-          <h4>
-            {{ user.fullname }}
-          </h4>
+          <h4>HI, I am</h4>
+          <h3>fullname</h3>
         </div>
-        <div class="d-flex align-items-end">
+
+        <div class="tab-content" id="v-pills-tabContent">
           <div
-            class="nav flex-column nav-pills me-3 special-list"
+            class="tab-pane fade show active"
+            id="buyone"
+            role="tabpanel"
+            aria-labelledby="buyone-tab"
+          >
+            <div class="row d-flex flex-wrap">
+              <div class="col">
+                <h5>location</h5>
+                <p>bio</p>
+              </div>
+            </div>
+          </div>
+          <div
+            class="tab-pane fade"
+            id="happyhour"
+            role="tabpanel"
+            aria-labelledby="happyhour-tab"
+          >
+            <div class="row d-flex flex-wrap">
+              <div class="col">
+                <p>technoloy</p>
+                <p>experience</p>
+                <button class="btn btn-dark">Github link</button>
+                <button class="btn btn-dark">Portfolio link</button>
+              </div>
+            </div>
+          </div>
+          <div
+            class="tab-pane fade"
+            id="freemeal"
+            role="tabpanel"
+            aria-labelledby="freemeal-tab"
+          >
+            <div class="row d-flex flex-wrap">
+              <div class="col">
+                <p>availability</p>
+                <p>
+                  If you would like to collaborate on your next project let me
+                  know by dropping me an email.
+                </p>
+                <p>email</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="d-flex justify-content-center">
+          <div
+            class="nav d-flex nav-pills me-3 special-list"
             id="v-pills-tab"
             role="tablist"
             aria-orientation="vertical"
@@ -52,92 +98,6 @@
               CONTACT
             </button>
           </div>
-          <div class="tab-content" id="v-pills-tabContent">
-            <div
-              class="tab-pane fade show active"
-              id="buyone"
-              role="tabpanel"
-              aria-labelledby="buyone-tab"
-            >
-              <div class="row d-flex flex-wrap">
-                <div class="col-lg-8 order-2 order-lg-1">
-                  <h3>Buy 1 get 1 free burgers</h3>
-                  <p class="fst-italic">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  </p>
-                  <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam
-                    est voluptas maiores quae minus alias sequi, rem suscipit
-                    velit?
-                  </p>
-                </div>
-                <div class="col-lg-4 text-center order-1 order-lg-2">
-                  <img
-                    src=""
-                    class="img-fluid rounded-circle"
-                    style="width: 200px; height: 200px"
-                    alt="burger"
-                  />
-                </div>
-              </div>
-            </div>
-            <div
-              class="tab-pane fade"
-              id="happyhour"
-              role="tabpanel"
-              aria-labelledby="happyhour-tab"
-            >
-              <div class="row d-flex flex-wrap">
-                <div class="col-lg-8 order-2 order-lg-1">
-                  <h3>Happy Hour</h3>
-                  <p class="fst-italic">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  </p>
-                  <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam
-                    est voluptas maiores quae minus alias sequi, rem suscipit
-                    velit?
-                  </p>
-                </div>
-                <div class="col-lg-4 text-center order-1 order-lg-2">
-                  <img
-                    src=""
-                    class="img-fluid rounded-circle"
-                    style="width: 200px; height: 200px"
-                    alt="drinks"
-                  />
-                </div>
-              </div>
-            </div>
-            <div
-              class="tab-pane fade"
-              id="freemeal"
-              role="tabpanel"
-              aria-labelledby="freemeal-tab"
-            >
-              <div class="row d-flex flex-wrap">
-                <div class="col-lg-8 order-2 order-lg-1">
-                  <h3>Eat on Us for your birthday</h3>
-                  <p class="fst-italic">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  </p>
-                  <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam
-                    est voluptas maiores quae minus alias sequi, rem suscipit
-                    velit?
-                  </p>
-                </div>
-                <div class="col-lg-4 text-center order-1 order-lg-2">
-                  <img
-                    src=""
-                    class="img-fluid rounded-circle"
-                    style="width: 200px; height: 200px"
-                    alt="birthday"
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </section>
@@ -154,7 +114,7 @@ export default {
 </script>
 <style>
 .card {
-  max-width: 340px;
+  max-width: 440px;
   margin: auto;
   overflow-y: auto;
   position: relative;
@@ -166,5 +126,37 @@ export default {
   flex-direction: column;
   border-radius: 10px;
   box-shadow: 0 0 0 8px rgba(255, 255, 255, 0.2);
+}
+
+.nav-link {
+  color: black;
+}
+
+.nav-pills .nav-link.active,
+.nav-pills .show > .nav-link {
+  background: #ffffff;
+  background-image: -webkit-linear-gradient(top, #ffffff, #60d49e);
+  background-image: -moz-linear-gradient(top, #ffffff, #60d49e);
+  background-image: -ms-linear-gradient(top, #ffffff, #60d49e);
+  background-image: -o-linear-gradient(top, #ffffff, #60d49e);
+  background-image: linear-gradient(to bottom, #ffffff, #60d49e);
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0px;
+  text-shadow: 1px 1px 3px #666666;
+  color: #ffffff;
+
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+}
+
+.nav-pills .nav-link {
+  background: 0 0;
+  border: 0;
+  /* border-radius: 0.25rem; */
+}
+.nav-link:hover {
+  color: #42b983;
+  
 }
 </style>

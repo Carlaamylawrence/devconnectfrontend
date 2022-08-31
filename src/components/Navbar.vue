@@ -1,11 +1,9 @@
 <template>
   <nav>
-    <div class="logo"></div>
-    <router-link to="/">Home</router-link> |
+    <router-link to="/">HOME</router-link> |
+    <router-link to="/login">LOGIN</router-link> |
     <router-link to="/devs">DEVS</router-link> |
     <router-link to="/projects">PROJECTS</router-link> |
-    <router-link to="/login">LOGIN</router-link> |
-
     <router-link to="/profile">PROFILE</router-link>
   </nav>
 </template>

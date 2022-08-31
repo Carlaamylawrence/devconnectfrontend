@@ -35,7 +35,7 @@
         </form>
         <div v-if="user">
           Welcome {{ user.email }}
-          <router-link to="/projects"> View Products Here</router-link>
+          <router-link to="/projects"> View Projects Here</router-link>
         </div>
       </div>
     </div>
