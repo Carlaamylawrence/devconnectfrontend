@@ -27,6 +27,22 @@ export default createStore({
     setProjects: (state, projects) => {
       state.projects = projects;
     },
+    sortUsersByFullname: (state) => {
+      state.users = state.users.sort((a, b) => {
+        // return a.number - b.number;
+        if (a.technology < b.technology) {
+          return -1;
+        }
+        if (a.technology > b.technology) {
+          return 1;
+        }
+        return 0;
+      });
+      if (!state.asc) {
+        state.users.reverse();
+      }
+      state.asc = !state.asc;
+    },
   },
   actions: {
     getUser: async (context, id) => {

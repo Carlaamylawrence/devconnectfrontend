@@ -9,7 +9,9 @@
           anything like me, you probably spend hours every day checking your
           phone, tablet, laptop, etc., looking at updates from friends, family,
           and colleagues. With so much time being wasted on social media, it’s
-          no wonder why some people struggle to stay focused.
+          no wonder why some people struggle to stay focused. To get noticed,
+          you need to create a professional profile that showcases your skills
+          and experience.
         </p>
         <p>
           DEVCONNECT provides a unique opportunity to connect with other
@@ -89,6 +91,25 @@
                 >Type of Availabilty</label
               >
             </div>
+            <!-- Technology -->
+            <div class="form-floating availabilty">
+              <select
+                class="form-select"
+                aria-label="Default select example"
+                v-model="technology"
+              >
+                <option value="Cplus">C++</option>
+                <option value="Csharp">C#</option>
+                <option value="Java">Java</option>
+                <option value="Javascript">javascript</option>
+                <option value="MySql">MySql</option>
+                <option value="Python">Python</option>
+                <option value="Ruby">Ruby</option>
+              </select>
+              <label class="inputLabel" for="floatingColor"
+                >Type of Availabilty</label
+              >
+            </div>
             <!-- PORTFOLIO -->
             <div class="form-floating">
               <input
@@ -151,6 +172,7 @@ export default {
       password: "",
       experience: "",
       availabilty: "",
+      technology: "",
       portUrl: "",
       githubUrl: "",
       userRole: "",
@@ -164,6 +186,7 @@ export default {
         password: this.password,
         experience: this.experience,
         availabilty: this.availability,
+        technology: this.technology,
         portUrl: this.portUrl,
         githubUrl: this.githubUrl,
         userRole: this.userRole,

@@ -4,7 +4,7 @@
       <div class="container">
         <div class="section-title text-center">
           <h4>HI, I am</h4>
-          <h3>fullname</h3>
+          <h3>{{ user.fullname }}</h3>
         </div>
 
         <div class="tab-content" id="v-pills-tabContent">
@@ -16,8 +16,8 @@
           >
             <div class="row d-flex flex-wrap">
               <div class="col">
-                <h5>location</h5>
-                <p>bio</p>
+                <h5>{{ user.location }}</h5>
+                <p>{{ user.bio }}</p>
               </div>
             </div>
           </div>
@@ -29,10 +29,10 @@
           >
             <div class="row d-flex flex-wrap">
               <div class="col">
-                <p>technoloy</p>
-                <p>experience</p>
-                <button class="btn btn-dark">Github link</button>
-                <button class="btn btn-dark">Portfolio link</button>
+                <p>{{ user.technology }}</p>
+                <p>{{ user.experience }}</p>
+                <button class="btn btn-dark">{{ user.githubUrl }}</button>
+                <button class="btn btn-dark">{{ user.portUrl }}</button>
               </div>
             </div>
           </div>
@@ -44,12 +44,12 @@
           >
             <div class="row d-flex flex-wrap">
               <div class="col">
-                <p>availability</p>
+                <p>{{ user.availability }}</p>
                 <p>
                   If you would like to collaborate on your next project let me
                   know by dropping me an email.
                 </p>
-                <p>email</p>
+                <p>{{ user.email }}</p>
               </div>
             </div>
           </div>

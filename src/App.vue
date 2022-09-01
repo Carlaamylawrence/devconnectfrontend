@@ -52,4 +52,8 @@ h4 {
 ::placeholder {
   color: purple !important;
 }
+
+p {
+  color: black;
+}
 </style>

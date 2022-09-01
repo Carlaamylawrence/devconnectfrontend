@@ -29,7 +29,7 @@
           </div>
 
           <!-- Button to submit  -->
-          <button type="submit" class="btn" value="Login">LOGIN</button>
+          <button type="submit" class="btn mt-2" value="Login">LOGIN</button>
         </form>
         <div v-if="user">
           Welcome {{ user.email }}
@@ -63,9 +63,15 @@ export default {
 };
 </script>
 <style>
-#login {
+.loginContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-image: url("https://i.postimg.cc/2ySxr5DT/4.png");
   height: 90vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .loginCard {
@@ -77,7 +83,6 @@ export default {
   flex-direction: column;
   border-radius: 10px;
   box-shadow: 0 0 0 8px rgba(255, 255, 255, 0.2);
-  margin-left: 3rem;
   padding: 1rem;
 }
 

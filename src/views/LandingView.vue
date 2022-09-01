@@ -38,12 +38,12 @@ export default {};
   background-repeat: no-repeat;
   background-size: cover;
   display: flex;
-  justify-content: start;
+  justify-content: center;
   align-items: center;
 }
 
 .landingCard {
-  max-width: 300px;
+  max-width: 400px;
   z-index: 1;
   /* background-color: rgba(255, 255, 255, 1); */
   display: flex;
@@ -51,7 +51,6 @@ export default {};
   flex-direction: column;
   border-radius: 10px;
   /* box-shadow: 0 0 0 8px rgba(255, 255, 255, 0.2); */
-  margin-left: 3rem;
   padding: 1rem;
 }
 
@@ -66,15 +65,17 @@ export default {};
 
 @keyframes float {
   0% {
-    filter: drop-shadow(2px 4px 0px rgba(0, 0, 0, 0.6));
+    filter: drop-shadow(1px 3px 0px rgba(0, 0, 0, 0.7));
     /* box-shadow: 0 5px 15px 0px rgba(0, 0, 0, 0.6); */
     transform: translatey(0px);
   }
   50% {
+    filter: drop-shadow(1px 3px 0px rgba(0, 0, 0, 0.7));
     /* box-shadow: 0 25px 15px 0px rgba(0, 0, 0, 0.2); */
     transform: translatey(-20px);
   }
   100% {
+    filter: drop-shadow(1px 3px 0px rgba(0, 0, 0, 0.7));
     /* box-shadow: 0 5px 15px 0px rgba(0, 0, 0, 0.6); */
     transform: translatey(0px);
   }
