@@ -135,17 +135,16 @@ export default {
 .nav-pills .nav-link.active,
 .nav-pills .show > .nav-link {
   background: #ffffff;
-  background-image: -webkit-linear-gradient(top, #ffffff, #60d49e);
-  background-image: -moz-linear-gradient(top, #ffffff, #60d49e);
-  background-image: -ms-linear-gradient(top, #ffffff, #60d49e);
-  background-image: -o-linear-gradient(top, #ffffff, #60d49e);
-  background-image: linear-gradient(to bottom, #ffffff, #60d49e);
+  background-image: -webkit-linear-gradient(top, #ffffff, #a762df);
+  background-image: -moz-linear-gradient(top, #ffffff, #a762df);
+  background-image: -ms-linear-gradient(top, #ffffff, #a762df);
+  background-image: -o-linear-gradient(top, #ffffff, #a762df);
+  background-image: linear-gradient(to bottom, #ffffff, #a762df);
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
   border-radius: 0px;
   text-shadow: 1px 1px 3px #666666;
   color: #ffffff;
-
   padding: 10px 20px 10px 20px;
   text-decoration: none;
 }
@@ -156,7 +155,6 @@ export default {
   /* border-radius: 0.25rem; */
 }
 .nav-link:hover {
-  color: #42b983;
-  
+  color: #a762df;
 }
 </style>

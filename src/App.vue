@@ -13,24 +13,43 @@ export default {
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+body {
+  font-family: "League Spartan", sans-serif;
+  overflow-x: hidden;
+  min-height: 100vh;
 }
 
-nav {
-  padding: 30px;
+h2,
+h3,
+h4 {
+  color: #a762df;
+  font-family: "League Spartan", sans-serif;
+}
+.btn {
+  font-family: "League Spartan", sans-serif;
+  height: 2rem;
+  background-color: rgb(166, 104, 223);
+  padding: 5px;
+  transition: transform 0.2s ease-out;
+  box-shadow: 0px 3px 1px #7e43ac;
 }
 
-nav a {
-  font-weight: bold;
-  color: #2c3e50;
+.btn:hover {
+  box-shadow: none;
+  transform: translateY(3px);
 }
 
-nav a.router-link-exact-active {
-  color: #42b983;
+.inputLabel {
+  color: purple !important;
+}
+
+::placeholder {
+  color: purple !important;
 }
 </style>

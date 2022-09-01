@@ -12,7 +12,7 @@
             id="floatingInput"
             placeholder="name@example.com"
           />
-          <label for="floatingInput">Email address</label>
+          <!-- <label class="inputLabel" for="floatingInput">Email address</label> -->
         </div>
         <!-- Password -->
         <div class="form-floating">
@@ -24,7 +24,7 @@
             id="floatingPassword"
             placeholder="Password"
           />
-          <label for="floatingPassword">Password</label>
+          <!-- <label class="inputLabel" for="floatingPassword">Password</label> -->
         </div>
 
         <!-- USERROLE -->
@@ -36,7 +36,9 @@
           >
             <option value="dev">Client</option>
           </select>
-          <label for="floatingColor">Just for confirmation</label>
+          <label class="inputLabel" for="floatingColor"
+            >Just for confirmation</label
+          >
         </div>
       </fieldset>
       <!-- Button to submit  -->
@@ -73,4 +75,8 @@ export default {
   },
 };
 </script>
-<style></style>
+<style>
+.inputLabel {
+  color: purple !important;
+}
+</style>

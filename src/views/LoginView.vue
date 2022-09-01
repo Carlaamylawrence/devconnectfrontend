@@ -1,7 +1,7 @@
 <template>
   <section id="login">
-    <div class="container shadow-sm p-3 mb-5 bg-body rounded">
-      <div class="loginPanel d-flex justify-content-center align-self-center">
+    <div class="loginContainer">
+      <div class="loginCard d-flex justify-content-center align-self-center">
         <form @submit.prevent="login">
           <h3>Log in to DEVCONNECT</h3>
           <!-- Email -->
@@ -14,7 +14,7 @@
               id="floatingInput"
               placeholder="name@example.com"
             />
-            <label for="floatingInput">Email address</label>
+            <!-- <label for="floatingInput">Email address</label> -->
           </div>
           <div class="form-floating">
             <input
@@ -25,13 +25,11 @@
               id="floatingPassword"
               placeholder="Password"
             />
-            <label for="floatingPassword">Password</label>
+            <!-- <label for="floatingPassword">Password</label> -->
           </div>
 
           <!-- Button to submit  -->
-          <button type="submit" class="btn-outline-dark" value="Login">
-            LOGIN
-          </button>
+          <button type="submit" class="btn" value="Login">LOGIN</button>
         </form>
         <div v-if="user">
           Welcome {{ user.email }}
@@ -64,4 +62,26 @@ export default {
   },
 };
 </script>
-<style></style>
+<style>
+#login {
+  background-image: url("https://i.postimg.cc/2ySxr5DT/4.png");
+  height: 90vh;
+}
+
+.loginCard {
+  max-width: 300px;
+  z-index: 1;
+  background-color: rgba(255, 255, 255, 1);
+  display: flex;
+  transition: 0.3s;
+  flex-direction: column;
+  border-radius: 10px;
+  box-shadow: 0 0 0 8px rgba(255, 255, 255, 0.2);
+  margin-left: 3rem;
+  padding: 1rem;
+}
+
+::placeholder {
+  color: purple !important;
+}
+</style>
