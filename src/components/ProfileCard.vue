@@ -31,8 +31,12 @@
               <div class="col">
                 <p>{{ user.technology }}</p>
                 <p>{{ user.experience }}</p>
-                <button class="btn btn-dark">{{ user.githubUrl }}</button>
-                <button class="btn btn-dark">{{ user.portUrl }}</button>
+                <a :href="user.githubUrl" target="_blank"
+                  ><button class="btn">Github</button></a
+                >
+                <a :href="user.portUrl" target="_blank"
+                  ><button class="btn">Portfolio</button></a
+                >
               </div>
             </div>
           </div>
@@ -105,11 +109,7 @@
 </template>
 <script>
 export default {
-  computed: {
-    user() {
-      return this.$store.state.user;
-    },
-  },
+  props: ["user"],
 };
 </script>
 <style>

@@ -32,7 +32,9 @@
           <button type="submit" class="btn mt-2" value="Login">LOGIN</button>
         </form>
         <div v-if="user">
-          Welcome {{ user.email }}
+          <p>Welcome</p>
+          <h3>{{ user.fullname }}</h3>
+          {
           <router-link to="/projects"> View Projects Here</router-link>
         </div>
       </div>

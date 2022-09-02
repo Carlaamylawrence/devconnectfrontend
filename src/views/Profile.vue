@@ -1,15 +1,42 @@
 <template>
-  <!-- EDIT BUTTON -->
-  <button
-    type="button"
-    class="btn btn-primary"
-    data-bs-toggle="modal"
-    data-bs-target="#exampleModal"
-  >
-    EDIT YOUR PROFILE
-  </button>
+  <section id="profile">
+    <div class="profileHeader">
+      <h4>HI, I AM</h4>
+      <h3>{{ user.fullname }}</h3>
+    </div>
+    <div class="editBtn">
+      <!-- EDIT BUTTON -->
+      <button
+        type="button"
+        class="btn"
+        data-bs-toggle="modal"
+        data-bs-target="#exampleModal"
+      >
+        EDIT YOUR PROFILE
+      </button>
+    </div>
+    <div class="profileInfo row">
+      <div class="profileDetails col-lg-6">
+        <p>Location: {{ user.location }}</p>
+        <p>Fluent in: {{ user.technology }}</p>
+        <p>Availible for {{ user.availability }}</p>
+        <p>Experience: {{ user.experience }}</p>
+      </div>
+      <div class="profileAbout col-lg-6">
+        <p>{{ user.bio }}</p>
+        <div class="exploreBtns">
+          <a :href="user.githubUrl" target="_blank"
+            ><button class="btn">Github</button></a
+          >
+          <a :href="user.portUrl" target="_blank"
+            ><button class="btn">Portfolio</button></a
+          >
+        </div>
+      </div>
+    </div>
+  </section>
   <!-- DISPLAY USER INFO -->
-  <ProfileCard />
+
   <!-- EDIT INFO -->
   <div
     class="modal fade"
@@ -21,7 +48,7 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">UPDATE YOUR INFO</h5>
+          <h3 class="modal-title" id="exampleModalLabel">UPDATE YOUR INFO</h3>
           <button
             type="button"
             class="btn-close"
@@ -42,7 +69,9 @@
                 <option value="Mid">3-5 YEARS</option>
                 <option value="Senior">5-8 YEARS</option>
               </select>
-              <label for="floatingColor">Years of Experience</label>
+              <label class="inputLabel" for="floatingColor"
+                >Years of Experience</label
+              >
             </div>
 
             <!-- Availabilty -->
@@ -56,7 +85,9 @@
                 <option value="contract">3-6 Months</option>
                 <option value="longterm">6+ Months</option>
               </select>
-              <label for="floatingColor">Type of Availabilty</label>
+              <label class="inputLabel" for="floatingColor"
+                >Type of Availabilty</label
+              >
             </div>
             <!-- PORTFOLIO -->
             <div class="form-floating">
@@ -68,7 +99,7 @@
                 id="floatingInput"
                 placeholder="www.portfolio.com"
               />
-              <label for="floatingInput">Portfolio Url</label>
+              <!-- <label for="floatingInput">Portfolio Url</label> -->
             </div>
             <!-- GITHUB -->
             <div class="form-floating">
@@ -80,42 +111,59 @@
                 id="floatingInput"
                 placeholder="www.github.com"
               />
-              <label for="floatingInput">Github Url</label>
+              <!-- <label for="floatingInput">Github Url</label> -->
             </div>
 
             <!-- Button to submit  -->
-            <input type="submit" value="SAVE" />
+            <button class="btn" type="submit" value="SAVE">SAVE</button>
           </form>
-        </div>
-        <div class="modal-footer">
-          <button
-            type="button"
-            class="btn btn-secondary"
-            data-bs-dismiss="modal"
-          >
-            Close
-          </button>
         </div>
       </div>
     </div>
   </div>
 </template>
 <script>
-import ProfileCard from "../components/ProfileCard.vue";
 export default {
-  components: {
-    ProfileCard,
-  },
   computed: {
     user() {
       return this.$store.state.user;
     },
   },
   methods: {
-    updateUserInfo(){
-      this.$store.dispatch("updateUserInfo", this.user)
-    }
-  }
+    updateUserInfo() {
+      this.$store.dispatch("updateUserInfo", this.user);
+    },
+  },
 };
 </script>
-<style></style>
+<style>
+.profileDetails {
+  max-width: 440px;
+  margin: auto;
+  overflow-y: auto;
+  position: relative;
+  z-index: 1;
+  overflow-x: hidden;
+  background-color: rgba(255, 255, 255, 1);
+  display: flex;
+  transition: 0.3s;
+  flex-direction: column;
+  border-radius: 10px;
+  box-shadow: 0 0 0 8px rgba(255, 255, 255, 0.2);
+}
+
+.profileAbout {
+  max-width: 440px;
+  margin: auto;
+  overflow-y: auto;
+  position: relative;
+  z-index: 1;
+  overflow-x: hidden;
+  background-color: rgba(255, 255, 255, 1);
+  display: flex;
+  transition: 0.3s;
+  flex-direction: column;
+  border-radius: 10px;
+  box-shadow: 0 0 0 8px rgba(255, 255, 255, 0.2);
+}
+</style>

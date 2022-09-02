@@ -27,7 +27,8 @@ body {
 
 h2,
 h3,
-h4 {
+h4,
+h5 {
   color: #a762df;
   font-family: "League Spartan", sans-serif;
 }
