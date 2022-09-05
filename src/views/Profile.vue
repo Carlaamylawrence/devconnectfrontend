@@ -140,10 +140,9 @@ export default {
 .profileDetails {
   max-width: 440px;
   margin: auto;
-  overflow-y: auto;
   position: relative;
   z-index: 1;
-  overflow-x: hidden;
+
   background-color: rgba(255, 255, 255, 1);
   display: flex;
   transition: 0.3s;
@@ -155,10 +154,10 @@ export default {
 .profileAbout {
   max-width: 440px;
   margin: auto;
-  overflow-y: auto;
+
   position: relative;
   z-index: 1;
-  overflow-x: hidden;
+
   background-color: rgba(255, 255, 255, 1);
   display: flex;
   transition: 0.3s;

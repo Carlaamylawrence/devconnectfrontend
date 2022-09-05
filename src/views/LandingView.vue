@@ -4,7 +4,7 @@
       <div class="logoDEV">
         <img
           class="logo"
-          src="https://i.postimg.cc/PrcCL3md/C34-C0-CE1-53-A4-4566-9-BD1-B4-A309-F2-E134-removebg-preview.png"
+          src="https://i.postimg.cc/qvQ8b4xR/C34-C0-CE1-53-A4-4566-9-BD1-B4-A309-F2-E134.png"
         />
       </div>
       <div class="login-btn">
@@ -13,7 +13,7 @@
         >
       </div>
       <div class="registerBox">
-        <h3 class="pt-2">or REGISTER</h3>
+        <h3 class="pt-2 text-center">or REGISTER</h3>
         <div class="registerBtns">
           <router-link to="/dev"
             ><button class="btn">I AM A DEV</button></router-link
@@ -80,7 +80,11 @@ export default {};
     transform: translatey(0px);
   }
 }
-
+.login-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .registerBtns {
   display: flex;
   justify-content: space-evenly;

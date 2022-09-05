@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div v-if="project">
     <p>{{ project.description }}</p>
     <p>{{ project.deadline }}</p>
     <p>{{ project.type }}</p>
@@ -7,12 +7,7 @@
 </template>
 <script>
 export default {
-  name: "ProjectCard",
-  computed: {
-    project() {
-      return this.$store.state.project;
-    },
-  },
+  props: ["project"],
 };
 </script>
 <style></style>

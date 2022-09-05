@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <section id="projectDisplay">
     <!-- Tech stack -->
     <div class="form-floating experience">
       <select
@@ -35,19 +35,18 @@
     </div>
 
     <!-- PROJECTS TO BE DISPLAYED HERE -->
-    <div v-if="projects" class="userProfiles">
+    <div class="projectGrid">
       <ProjectCard
-        v-for="project of projects"
+        v-for="project in projects"
         :key="project.id"
         :project="project"
       />
     </div>
-  </div>
+  </section>
 </template>
 <script>
 import ProjectCard from "../components/ProjectCard.vue";
 export default {
-  props: ["id"],
   components: {
     ProjectCard,
   },
@@ -60,10 +59,9 @@ export default {
       deadline: "",
       tech: "",
       postedBy: "",
+      project: "",
+      projects: "",
     };
-  },
-  mounted() {
-    this.$store.dispatch("getProjects");
   },
   computed: {
     projects() {
@@ -74,8 +72,19 @@ export default {
       return this.$store.state.project;
     },
   },
+  mounted() {
+    window.scrollTo(0, 0);
+    this.$store.dispatch("getProjects");
+  },
 };
 </script>
 <style>
+#projectDisplay {
+  height: 90vh;
 
+  background-image: url("https://i.postimg.cc/tgnSNzxp/2.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 </style>

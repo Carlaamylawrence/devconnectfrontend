@@ -21,8 +21,16 @@
         <option value="Ruby">Ruby</option>
       </select>
     </div>
-    <div class="devGrid">
+    <div class="devGrid" v-if="users">
       <ProfileCard v-for="user in users" :key="user.id" :user="user" />
+    </div>
+    <div class="loader" v-else>
+      <div class="logoDEV">
+        <img
+          class="logo"
+          src="https://i.postimg.cc/qvQ8b4xR/C34-C0-CE1-53-A4-4566-9-BD1-B4-A309-F2-E134.png"
+        />
+      </div>
     </div>
   </section>
 </template>
@@ -55,9 +63,9 @@ export default {
     },
   },
   mounted() {
-    fetch("http://localhost:3050/users")
-      .then((response) => response.json())
-      .then((data) => (this.users = data));
+    // fetch("http://localhost:3050/users")
+    //   .then((response) => response.json())
+    //   .then((data) => (this.users = data));
     this.$store.dispatch("getUsers");
   },
   methods: {
@@ -68,6 +76,21 @@ export default {
 };
 </script>
 <style>
+#devDisplay {
+  min-height: 100vh;
+  background-image: url("https://i.postimg.cc/tgnSNzxp/2.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
 .sort-options {
   display: flex;
   justify-content: center;

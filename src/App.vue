@@ -1,13 +1,16 @@
 <template>
   <Navbar></Navbar>
   <router-view :key="$route.fullPath" />
+  <Footer />
 </template>
 <script>
 import Navbar from "./components/Navbar.vue";
+import Footer from "./components/Footer.vue";
 export default {
   name: "App",
   components: {
     Navbar,
+    Footer,
   },
 };
 </script>
@@ -39,6 +42,10 @@ h5 {
   padding: 5px;
   transition: transform 0.2s ease-out;
   box-shadow: 0px 3px 1px #7e43ac;
+}
+
+section {
+  margin-top: 5rem;
 }
 
 .btn:hover {
