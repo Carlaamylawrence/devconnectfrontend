@@ -2,10 +2,13 @@
   <nav id="navbar" :class="{ active: isActive }">
     <ul class="nav-links">
       <li class="nav-link" @click="toggleNav()">
-        <router-link to="/">HOME</router-link>
+        <router-link to="/login">LOGIN</router-link>
       </li>
       <li class="nav-link" @click="toggleNav()">
-        <router-link to="/login">LOGIN</router-link>
+        <router-link to="/about">ABOUT</router-link>
+      </li>
+      <li class="nav-link" @click="toggleNav()">
+        <router-link to="/">HOME</router-link>
       </li>
       <li class="nav-link" @click="toggleNav()">
         <router-link to="/devs">DEVS</router-link>

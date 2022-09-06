@@ -1,13 +1,13 @@
 <template>
   <section id="container">
     <div class="contactContainer row p-5">
-      <div class="contactImage col-lg-3">
+      <div class="contactImage col-lg-6">
         <img
           class="phoneImage img-fluid"
           src="https://i.postimg.cc/0jrqJrs4/90286-FF9-8-DC0-43-AA-8422-C7-CA973-A09-A0.png"
         />
       </div>
-      <div class="contactCard col-lg-5">
+      <div class="contactCard col-lg-6">
         <h2>CONTACT US</h2>
         <form action="https://formspree.io/f/mrgdekgn" method="POST">
           <div class="form-floating mb-3">
@@ -56,6 +56,12 @@ export default {};
   flex-direction: column;
   border-radius: 10px;
   box-shadow: 0 0 0 8px rgba(255, 255, 255, 0.2);
+}
+
+.contactContainer {
+  display: flex;
+  justify-content: center;
+  align-content: center;
 }
 .phoneImage {
   filter: drop-shadow(0px 10px 3px rgb(199, 104, 214));

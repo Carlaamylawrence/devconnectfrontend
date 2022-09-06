@@ -4,10 +4,12 @@
       <div class="top-footer p-3">
         <div class="footer-text d-flex flex-column align-items-center">
           <h3 class="text-center">NEED A PROJECT? NEED A DEVELOPER?</h3>
-          <h4 class="text-center">
-            DEV<span class="footerName2">CONNECT</span> is a collaborative space
-            FOR YOU
-          </h4>
+          <router-link to="/"
+            ><h4 class="text-center">
+              DEV<span class="footerName2">CONNECT</span> is a collaborative
+              space FOR YOU
+            </h4>
+          </router-link>
           <router-link to="/contact"
             ><button type="button" class="btn">
               GET IN TOUCH<i class="fa-solid fa-arrow-right-long"></i></button
