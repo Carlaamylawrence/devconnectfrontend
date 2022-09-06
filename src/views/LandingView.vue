@@ -1,30 +1,32 @@
 <template>
-  <div class="landingContainer row">
-    <div class="landingCard col=lg-8">
-      <div class="logoDEV">
-        <img
-          class="logo"
-          src="https://i.postimg.cc/qvQ8b4xR/C34-C0-CE1-53-A4-4566-9-BD1-B4-A309-F2-E134.png"
-        />
-      </div>
-      <div class="login-btn">
-        <router-link to="/login"
-          ><button class="btn">LOGIN</button></router-link
-        >
-      </div>
-      <div class="registerBox">
-        <h3 class="pt-2 text-center">or REGISTER</h3>
-        <div class="registerBtns">
-          <router-link to="/dev"
-            ><button class="btn">I AM A DEV</button></router-link
+  <section id="container">
+    <div class="landingContainer row">
+      <div class="landingCard col=lg-8">
+        <div class="logoDEV">
+          <img
+            class="logo"
+            src="https://i.postimg.cc/qvQ8b4xR/C34-C0-CE1-53-A4-4566-9-BD1-B4-A309-F2-E134.png"
+          />
+        </div>
+        <div class="login-btn">
+          <router-link to="/login"
+            ><button class="btn">LOGIN</button></router-link
           >
-          <router-link to="/client"
-            ><button class="btn">I AM A CLIENT</button></router-link
-          >
+        </div>
+        <div class="registerBox">
+          <h3 class="pt-2 text-center">or REGISTER</h3>
+          <div class="registerBtns">
+            <router-link to="/dev"
+              ><button class="btn">I AM A DEV</button></router-link
+            >
+            <router-link to="/client"
+              ><button class="btn">I AM A CLIENT</button></router-link
+            >
+          </div>
         </div>
       </div>
     </div>
-  </div>
+  </section>
 </template>
 <script>
 export default {};

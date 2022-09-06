@@ -27,9 +27,26 @@ const routes = [
     component: () => import("../views/DevDisplay.vue"),
   },
   {
+    path: "/devs/:id",
+    name: "SingleUser",
+    component: () => import("../views/SingleUser.vue"),
+    props: true,
+  },
+  {
     path: "/projects",
     name: "projects",
     component: () => import("../views/ProjectsDisplay.vue"),
+  },
+  {
+    path: "/projects/:id",
+    name: "SingleProject",
+    component: () => import("../views/SingleProject.vue"),
+    props: true,
+  },
+  {
+    path: "/contact",
+    name: "contact",
+    component: () => import("../views/Contact.vue"),
   },
   {
     path: "/profile",

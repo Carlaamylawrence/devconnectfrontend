@@ -1,7 +1,13 @@
 <template>
-  <section id="login">
-    <div class="loginContainer">
-      <div class="loginCard">
+  <section id="container">
+    <div class="loginContainer row">
+      <div class="loginImage col-lg-4">
+        <img
+          class="loginPicture img-fluid"
+          src="https://i.postimg.cc/7LsxnX8B/loginimage.png"
+        />
+      </div>
+      <div class="loginCard col-lg-5">
         <form @submit.prevent="login">
           <h3 class="text-center">Log in to DEVCONNECT</h3>
           <!-- Email -->
@@ -113,8 +119,8 @@ h3 {
   display: flex;
   justify-content: space-evenly;
 }
-.welcomeUser{
-  display:flex
+.welcomeUser {
+  display: flex;
 }
 ::placeholder {
   color: purple !important;

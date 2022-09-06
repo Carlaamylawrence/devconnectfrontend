@@ -1,5 +1,5 @@
 <template>
-  <section id="profile">
+  <section id="container">
     <div class="profileHeader">
       <h4>HI, I AM</h4>
       <h3>{{ user.fullname }}</h3>
@@ -165,4 +165,6 @@ export default {
   border-radius: 10px;
   box-shadow: 0 0 0 8px rgba(255, 255, 255, 0.2);
 }
+
+
 </style>

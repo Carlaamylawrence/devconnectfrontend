@@ -30,10 +30,10 @@ export default createStore({
     sortUsersByFullname: (state) => {
       state.users = state.users.sort((a, b) => {
         // return a.number - b.number;
-        if (a.technology < b.technology) {
+        if (a.fullname < b.fullname) {
           return -1;
         }
-        if (a.technology > b.technology) {
+        if (a.fullname > b.fullname) {
           return 1;
         }
         return 0;
@@ -46,10 +46,11 @@ export default createStore({
   },
   actions: {
     getUser: async (context, id) => {
-      fetch("http://localhost:3050/users/:id" + id)
+      fetch("http://localhost:3050/users/" + id)
         .then((res) => res.json())
-        .then((json) => context.commit("setUser", json))
-        .catch((err) => console.log(err.message));
+        .then((data) => context.commit("setUser", data));
+      // .then((json) => context.commit("setUser", json))
+      // .catch((err) => console.log(err.message));
     },
     getUsers: async (context) => {
       // fetch("https://xcjewels.herokuapp.com/users")
@@ -130,6 +131,35 @@ export default createStore({
         });
     },
 
+    // DELETE A PROJECT
+    deleteProject: async (context, id) => {
+      fetch("http://localhost:3050/projects/" + id, {
+        method: "DELETE",
+      })
+        .then((response) => response.json())
+        .then((json) => context.dispatch("getProjects"));
+    },
+    // UPDATE A PROJECT
+    updateProject: async (context, project) => {
+      const { project_id, description, type, deadline, tech, postedBy } =
+        project;
+      fetch("http://localhost:3050/projects/" + id, {
+        method: "PATCH",
+        body: JSON.stringify({
+          description: description,
+          type: type,
+          deadline: deadline,
+          tech: tech,
+          postedBy,
+        }),
+        headers: {
+          "Content-type": "application/json; charset=UTF-8",
+        },
+      })
+        .then((response) => response.json())
+        .then((json) => context.commit("setProject", json));
+    },
+
     updateUserInfo: async (context, id) => {
       console.log(id);
       const {
@@ -142,7 +172,7 @@ export default createStore({
         githubUrl,
         userRole,
       } = user;
-      fetch("http://localhost:3050/users/:id" + id, {
+      fetch("http://localhost:3050/users/" + id, {
         method: "PATCH",
         body: JSON.stringify({
           fullname: fullname,

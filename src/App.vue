@@ -45,7 +45,8 @@ h5 {
 }
 
 section {
-  margin-top: 5rem;
+  min-height: 100vh;
+  padding-top: 6rem;
 }
 
 .btn:hover {
@@ -63,5 +64,9 @@ section {
 
 p {
   color: black;
+}
+
+a {
+  text-decoration: none;
 }
 </style>

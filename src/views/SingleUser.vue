@@ -1,7 +1,7 @@
 <template>
-  <div class="card">
-    <section id="specials" class="specials">
-      <div class="container">
+  <div class="card" v-if="user">
+    <section id="singleProfile" class="singleProfile">
+      <div class="container" v-for="user of user" :key="user.id" :user="user">
         <div class="section-title text-center">
           <h4>HI, I am</h4>
           <h3>{{ user.fullname }}</h3>
@@ -109,7 +109,18 @@
 </template>
 <script>
 export default {
-  props: ["user"],
+  props: ["id"],
+
+  computed: {
+    user() {
+      console.log(this.$store.state.user);
+      return this.$store.state.user;
+    },
+  },
+  mounted() {
+    console.log(this.$route.params.id);
+    this.$store.dispatch("getUser", this.$route.params.id);
+  },
 };
 </script>
 <style>
