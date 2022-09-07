@@ -44,6 +44,11 @@ export default {
       this.isActive = !this.isActive;
     },
   },
+  computed: {
+    user() {
+      return this.$store.state.user;
+    },
+  },
 };
 </script>
 <style scoped>
@@ -58,7 +63,7 @@ export default {
   transition: all 0.3s linear;
 }
 #navbar.solid {
-  background-color: #bebce03a ;
+  background-color: #bebce03a;
 }
 nav {
   background-color: #4d76c700;
@@ -125,8 +130,9 @@ nav {
     display: block;
     z-index: 100;
   }
-  ol, ul {
-    padding-left:0;
+  ol,
+  ul {
+    padding-left: 0;
   }
 }
 </style>
