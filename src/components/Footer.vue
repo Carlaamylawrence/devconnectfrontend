@@ -61,6 +61,6 @@ export default {};
 }
 
 .fa-brands:hover {
-  text-shadow: plum 2px 3px 4px;
+  text-shadow:#e77755 2px 3px 4px;
 }
 </style>

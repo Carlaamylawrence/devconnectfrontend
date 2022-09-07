@@ -86,7 +86,7 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-image: url("https://i.postimg.cc/2ySxr5DT/4.png");
+  /* background-image: url("https://i.postimg.cc/2ySxr5DT/4.png"); */
   height: 90vh;
   background-position: center;
   background-repeat: no-repeat;
@@ -96,7 +96,7 @@ export default {
 .loginCard {
   max-width: 300px;
   z-index: 1;
-  background-color: #a762df;
+  background-color: var(--background-color);
   transition: 0.3s;
 
   border-radius: 10px;
@@ -104,13 +104,14 @@ export default {
   padding: 2rem;
 }
 
-h3 {
+h3,p {
   color: whitesmoke;
 }
 .btn {
   font-family: "League Spartan", sans-serif;
+  color: whitesmoke;
   height: 2rem;
-  background-color: rgb(255, 255, 255);
+  background-color:#e77755;
   padding: 5px;
   transition: transform 0.2s ease-out;
   box-shadow: 0px 3px 1px #7e43ac;

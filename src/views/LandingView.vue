@@ -1,20 +1,25 @@
 <template>
   <section id="container">
-    <div class="landingContainer row">
-      <div class="landingCard col=lg-8">
+    <div class="landingContainer row ">
+      <div class="logoCard col-lg-5">
         <div class="logoDEV">
           <img
-            class="logo"
-            src="https://i.postimg.cc/qvQ8b4xR/C34-C0-CE1-53-A4-4566-9-BD1-B4-A309-F2-E134.png"
+            class="floatingImage img-fluid"
+            src="https://i.postimg.cc/sDSBX8YS/E8432-FAB-AFBC-4-FF1-82-DE-9-E0244799-FB8.png" 
           />
         </div>
-        <div class="login-btn">
+      </div>
+      <div class="landingInfo col-lg-6">
+        <div class="devConnect">
+          <img class="logo img-fluid" src="https://i.postimg.cc/G2d0F4Vd/EFDF76-BC-E152-4-ADD-A660-ED6-C387-F6441.png">
+        </div>
+        <!-- <div class="login-btn">
           <router-link to="/login"
             ><button class="btn">LOGIN</button></router-link
           >
-        </div>
+        </div> -->
         <div class="registerBox">
-          <h3 class="pt-2 text-center">or REGISTER</h3>
+          <h3 class="pt-2 text-center">SIGN UP TODAY</h3>
           <div class="registerBtns">
             <router-link to="/dev"
               ><button class="btn">I AM A DEV</button></router-link
@@ -24,7 +29,11 @@
             >
           </div>
         </div>
+        <div class="moreInfo mt-2">
+        <router-link class="aboutRedirect" to="/about"><i class="fa-solid fa-circle-info"></i>Find out more</router-link>
+        </div>
       </div>
+      
     </div>
   </section>
 </template>
@@ -35,7 +44,7 @@ export default {};
 .landingContainer {
   height: 90vh;
   overflow-x: hidden;
-  background-image: url("https://i.postimg.cc/mDCqw77q/1.png");
+  /* background-image: url("https://i.postimg.cc/mDCqw77q/1.png"); */
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -43,8 +52,18 @@ export default {};
   justify-content: center;
   align-items: center;
 }
-
-.landingCard {
+.landingInfo{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.devConnect{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.logoCard {
   max-width: 400px;
   z-index: 1;
   /* background-color: rgba(255, 255, 255, 1); */
@@ -55,8 +74,12 @@ export default {};
   /* box-shadow: 0 0 0 8px rgba(255, 255, 255, 0.2); */
   padding: 1rem;
 }
-
-.logo {
+.logo{
+  max-height: 200px;
+  object-fit: cover;
+  filter: drop-shadow(1px 3px 0px rgba(0, 0, 0, 0.7));
+}
+.floatingImage {
   width: 100%;
   height: auto;
   object-fit: cover;
@@ -89,6 +112,12 @@ export default {};
 }
 .registerBtns {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
+  gap:10px;
+}
+a.aboutRedirect{
+  color: var(--color3);
+  font-size: 1rem;
+
 }
 </style>

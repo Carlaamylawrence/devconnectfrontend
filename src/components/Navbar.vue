@@ -2,13 +2,13 @@
   <nav id="navbar" :class="{ active: isActive }">
     <ul class="nav-links">
       <li class="nav-link" @click="toggleNav()">
+        <router-link to="/">HOME</router-link>
+      </li>
+      <li class="nav-link" @click="toggleNav()">
         <router-link to="/login">LOGIN</router-link>
       </li>
       <li class="nav-link" @click="toggleNav()">
         <router-link to="/about">ABOUT</router-link>
-      </li>
-      <li class="nav-link" @click="toggleNav()">
-        <router-link to="/">HOME</router-link>
       </li>
       <li class="nav-link" @click="toggleNav()">
         <router-link to="/devs">DEVS</router-link>
@@ -58,14 +58,14 @@ export default {
   transition: all 0.3s linear;
 }
 #navbar.solid {
-  background-color: #a862df;
+  background-color: #bebce03a ;
 }
 nav {
-  background-color: #a862df;
+  background-color: #4d76c700;
 }
 .nav-links {
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
   gap: 20px;
   list-style-type: none;
@@ -73,10 +73,10 @@ nav {
 }
 .nav-link a {
   color: whitesmoke;
-  text-shadow: #a862df 1px 1px;
+  text-shadow: #628adf 1px 1px;
   text-decoration: none;
 
-  font-size: 2rem;
+  font-size: 1rem;
 }
 .nav-link a:hover {
   color: #a862df 1px 1px;
@@ -89,7 +89,7 @@ nav {
   color: #a862df 1px 1px;
 }
 #navbar a.router-link-exact-active {
-  color: #a862df;
+  color: #e77755;
   text-shadow: rgb(72, 72, 72) 1px 1px 3px;
 }
 @media screen and (max-width: 768px) {
@@ -116,7 +116,7 @@ nav {
   }
   #navbar.active,
   nav {
-    background-color: #a862df 1px 1px;
+    background-color: var(--background-color);
   }
   .wrapper {
     display: none;
@@ -124,6 +124,9 @@ nav {
   #toggler {
     display: block;
     z-index: 100;
+  }
+  ol, ul {
+    padding-left:0;
   }
 }
 </style>

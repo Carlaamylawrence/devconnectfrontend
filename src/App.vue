@@ -16,6 +16,12 @@ export default {
 </script>
 
 <style>
+:root{
+  --color1: #4d76c7;
+  --color2: whitesmoke;
+  --color3: #e77755;
+  --background-color: #4d76c7;
+}
 * {
   margin: 0;
   padding: 0;
@@ -28,20 +34,28 @@ body {
   min-height: 100vh;
 }
 
-h2,
-h3,
-h4,
-h5 {
-  color: #a762df;
+h2{
+  color: var(--color1);
   font-family: "League Spartan", sans-serif;
+  font-size: 3rem;
+}
+h3,
+h5 {
+  color: var(--color1);
+  font-family: "League Spartan", sans-serif;
+}
+h4{
+  color: var(--color3);
+   font-family: "League Spartan", sans-serif;
 }
 .btn {
   font-family: "League Spartan", sans-serif;
   height: 2rem;
-  background-color: rgb(166, 104, 223);
+  background-color:var(--color3);
   padding: 5px;
   transition: transform 0.2s ease-out;
-  box-shadow: 0px 3px 1px #7e43ac;
+  box-shadow: 0px 3px 1px  rgb(63, 79, 131);
+  color: var(--color2)
 }
 
 section {
@@ -52,14 +66,15 @@ section {
 .btn:hover {
   box-shadow: none;
   transform: translateY(3px);
+  color: var(--color2)
 }
 
 .inputLabel {
-  color: purple !important;
+  color: rgb(90, 118, 209) !important;
 }
 
 ::placeholder {
-  color: purple !important;
+  color: rgb(90, 118, 209) !important;
 }
 
 p {
