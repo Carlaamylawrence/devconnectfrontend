@@ -1,5 +1,13 @@
 <template>
   <section id="container">
+    <div class="profilePicture">
+      <img
+        class="profilepicture mt-5"
+        alt="profilepicture"
+        :src="user.avatar"
+      />
+    </div>
+
     <div class="profileHeader">
       <h4>HI, I AM</h4>
       <h3>{{ user.fullname }}</h3>
@@ -12,7 +20,13 @@
         data-bs-toggle="modal"
         data-bs-target="#exampleModal"
       >
-        EDIT YOUR PROFILE
+        <i class="fa-solid fa-gear"></i>
+      </button>
+    </div>
+    <div class="deleteBtn">
+      <!-- DELETE BUTTON -->
+      <button type="button" class="btn" @click="deleteUser(id)">
+        <i class="fa-solid fa-trash"></i>
       </button>
     </div>
     <div class="profileInfo row">
@@ -133,6 +147,9 @@ export default {
     updateUserInfo() {
       this.$store.dispatch("updateUserInfo", this.user);
     },
+    deleteUser(id) {
+      this.$store.dispatch("deleteUser", id);
+    },
   },
 };
 </script>
@@ -165,6 +182,4 @@ export default {
   border-radius: 10px;
   box-shadow: 0 0 0 8px rgba(255, 255, 255, 0.2);
 }
-
-
 </style>

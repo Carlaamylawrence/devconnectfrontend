@@ -42,7 +42,7 @@ export default {};
   margin: auto;
   position: relative;
   z-index: 1;
-  background-color: rgba(255, 255, 255, 1);
+  background-color: rgb(255 255 255 / 9%);
   display: flex;
   transition: 0.3s;
   flex-direction: column;

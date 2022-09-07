@@ -4,10 +4,10 @@
     :to="{ name: 'SingleProject', params: { id: project.project_id } }"
   >
     <div class="projectDisplayCard">
+      <h4>{{ project.title }}</h4>
       <p>{{ project.description }}</p>
       <p>{{ project.deadline }}</p>
       <p>{{ project.type }}</p>
-      <p>{{ project.postedBy }}</p>
     </div>
   </router-link>
 </template>

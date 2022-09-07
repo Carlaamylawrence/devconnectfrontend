@@ -100,7 +100,7 @@ export default {
 .loginCard {
   max-width: 300px;
   z-index: 1;
-  background-color: var(--background-color);
+  background-color: rgb(255 255 255 / 9%);
   transition: 0.3s;
 
   border-radius: 10px;

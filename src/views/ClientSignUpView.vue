@@ -115,7 +115,7 @@ export default {
   position: relative;
   z-index: 1;
   overflow-x: hidden;
-  background-color: #a762df;
+  background-color: rgb(255 255 255 / 9%);
   display: flex;
   transition: 0.3s;
   flex-direction: column;

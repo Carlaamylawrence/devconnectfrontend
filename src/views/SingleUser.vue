@@ -2,6 +2,13 @@
   <div class="card" v-if="user">
     <section id="singleProfile" class="singleProfile">
       <div class="container" v-for="user of user" :key="user.id" :user="user">
+        <div class="profilePhoto">
+          <img
+            class="profilepicture mt-5"
+            alt="profilepicture"
+            :src="user.avatar"
+          />
+        </div>
         <div class="section-title text-center">
           <h4>HI, I am</h4>
           <h3>{{ user.fullname }}</h3>

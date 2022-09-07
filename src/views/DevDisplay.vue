@@ -10,7 +10,7 @@
             placeholder="Search"
           />
         </div>
-        <button class="btn ms-2" @click="sortUsers">Sort By Technology</button>
+        <button class="btn ms-2" @click="sortUsers">Sort Alphabetically</button>
         <select v-model="technology" class="ms-3">
           <option value="all">All</option>
           <option value="Cplus">C++</option>
@@ -28,10 +28,7 @@
       </div>
       <div class="loader" v-else>
         <div class="logoDEV">
-          <img
-            class="logo"
-            src="https://i.postimg.cc/qvQ8b4xR/C34-C0-CE1-53-A4-4566-9-BD1-B4-A309-F2-E134.png"
-          />
+          <img class="logo" src="https://i.postimg.cc/KzHmWhRs/logo.png" />
         </div>
       </div>
     </div>
@@ -80,7 +77,7 @@ export default {
 <style>
 .devDisplay {
   min-height: 100vh;
-  background-image: url("https://i.postimg.cc/tgnSNzxp/2.png");
+
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;

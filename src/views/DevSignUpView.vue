@@ -67,13 +67,29 @@
                 aria-label="Default select example"
                 v-model="experience"
               >
-                <option value="Junior">0-2 YEARS</option>
-                <option value="Mid">3-5 YEARS</option>
-                <option value="Senior">5-8 YEARS</option>
+                <option value="Junior">Junior</option>
+                <option value="Mid">Mid-Level</option>
+                <option value="Senior">Senior</option>
               </select>
               <label class="inputLabel" for="floatingColor"
-                >Years of Experience</label
+                >Level of Experience</label
               >
+            </div>
+            <!-- GENDER -->
+            <div class="form-floating avatar">
+              <select
+                class="form-select"
+                aria-label="Default select example"
+                v-model="avatar"
+              >
+                <option value="https://i.postimg.cc/Kz6w3MxG/female-Avatar.png">
+                  Female
+                </option>
+                <option value="https://i.postimg.cc/KvShRd8P/male-Avatar.png">
+                  Male
+                </option>
+              </select>
+              <label class="inputLabel" for="floatingColor">Gender</label>
             </div>
 
             <!-- Availabilty -->
@@ -92,7 +108,7 @@
               >
             </div>
             <!-- Technology -->
-            <div class="form-floating availabilty">
+            <div class="form-floating technology">
               <select
                 class="form-select"
                 aria-label="Default select example"
@@ -103,11 +119,12 @@
                 <option value="Java">Java</option>
                 <option value="Javascript">javascript</option>
                 <option value="MySql">MySql</option>
+                <option value="Node">Node</option>
                 <option value="Python">Python</option>
                 <option value="Ruby">Ruby</option>
               </select>
               <label class="inputLabel" for="floatingColor"
-                >Type of Availabilty</label
+                >Type of Technology</label
               >
             </div>
             <!-- PORTFOLIO -->
@@ -171,6 +188,7 @@ export default {
       email: "",
       password: "",
       experience: "",
+      avatar: "",
       availabilty: "",
       technology: "",
       portUrl: "",
@@ -185,6 +203,7 @@ export default {
         email: this.email,
         password: this.password,
         experience: this.experience,
+        avatar: this.avatar,
         availabilty: this.availability,
         technology: this.technology,
         portUrl: this.portUrl,
@@ -210,7 +229,7 @@ export default {
   position: relative;
   z-index: 1;
   overflow-x: hidden;
-  background-color: #a762df;
+  background-color: rgb(255 255 255 / 9%);
   display: flex;
   transition: 0.3s;
   flex-direction: column;

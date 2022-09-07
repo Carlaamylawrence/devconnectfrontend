@@ -16,7 +16,7 @@ export default {
 </script>
 
 <style>
-:root{
+:root {
   --color1: #4d76c7;
   --color2: whitesmoke;
   --color3: #e77755;
@@ -32,30 +32,39 @@ body {
   font-family: "League Spartan", sans-serif;
   overflow-x: hidden;
   min-height: 100vh;
+  background-image: linear-gradient(
+    to right bottom,
+    #274d84,
+    #25669f,
+    #2080ba,
+    #189bd3,
+    #13b6ea
+  );
 }
 
-h2{
+h2 {
   color: var(--color1);
   font-family: "League Spartan", sans-serif;
   font-size: 3rem;
+  text-shadow: 1px 1px 3px black;
 }
 h3,
 h5 {
   color: var(--color1);
   font-family: "League Spartan", sans-serif;
 }
-h4{
+h4 {
   color: var(--color3);
-   font-family: "League Spartan", sans-serif;
+  font-family: "League Spartan", sans-serif;
 }
 .btn {
   font-family: "League Spartan", sans-serif;
   height: 2rem;
-  background-color:var(--color3);
+  background-color: var(--color3);
   padding: 5px;
   transition: transform 0.2s ease-out;
-  box-shadow: 0px 3px 1px  rgb(63, 79, 131);
-  color: var(--color2)
+  box-shadow: 0px 3px 1px rgb(63, 79, 131);
+  color: var(--color2);
 }
 
 section {
@@ -66,7 +75,7 @@ section {
 .btn:hover {
   box-shadow: none;
   transform: translateY(3px);
-  color: var(--color2)
+  color: var(--color2);
 }
 
 .inputLabel {

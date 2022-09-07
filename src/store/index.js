@@ -8,7 +8,7 @@ export default createStore({
     projects: null,
     asc: true,
     jwt: null,
-    // url: "https://xcjewels.herokuapp.com",
+    // url: "https://yourdevconnect.herokuapp.com/",
   },
   getters: {},
   mutations: {
@@ -40,6 +40,22 @@ export default createStore({
       });
       if (!state.asc) {
         state.users.reverse();
+      }
+      state.asc = !state.asc;
+    },
+    sortProjectsByTitle: (state) => {
+      state.projects = state.projects.sort((a, b) => {
+        // return a.number - b.number;
+        if (a.title < b.title) {
+          return -1;
+        }
+        if (a.title > b.title) {
+          return 1;
+        }
+        return 0;
+      });
+      if (!state.asc) {
+        state.projects.reverse();
       }
       state.asc = !state.asc;
     },
@@ -112,6 +128,15 @@ export default createStore({
           // context.commit("setUser", json));
         });
     },
+
+    // DELETE A PROJECT
+    deleteUser: async (context, id) => {
+      fetch("http://localhost:3050/users/" + id, {
+        method: "DELETE",
+      })
+        .then((response) => response.json())
+        .then((json) => context.dispatch("getUsers"));
+    },
     // PROJECTS
     // SHOW ALL OF EM PROJECTS
     getProjects: async (context) => {
@@ -141,7 +166,7 @@ export default createStore({
     },
     // UPDATE A PROJECT
     updateProject: async (context, project) => {
-      const { project_id, description, type, deadline, tech, postedBy } =
+      const { project_id, description, type, deadline, tech, email, postedBy } =
         project;
       fetch("http://localhost:3050/projects/" + id, {
         method: "PATCH",
@@ -150,6 +175,7 @@ export default createStore({
           type: type,
           deadline: deadline,
           tech: tech,
+          email: email,
           postedBy,
         }),
         headers: {
@@ -167,6 +193,7 @@ export default createStore({
         email,
         password,
         experience,
+        avatar,
         availabilty,
         portUrl,
         githubUrl,
@@ -179,6 +206,7 @@ export default createStore({
           email: email,
           password: password,
           experience: experience,
+          avatar: avatar,
           availabilty: availabilty,
           portUrl: portUrl,
           githubUrl: githubUrl,

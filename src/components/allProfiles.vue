@@ -2,6 +2,7 @@
   <div class="allProfiles">
     <router-link :to="{ name: 'SingleUser', params: { id: user.id } }">
       <div class="displayProfileCard">
+        
         <h4>HI, I am</h4>
         <h3>{{ user.fullname }}</h3>
         <h5>{{ user.location }}</h5>
