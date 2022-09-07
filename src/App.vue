@@ -48,12 +48,10 @@ h2 {
   font-size: 3rem;
   text-shadow: 1px 1px 3px black;
 }
+
 h3,
+h4,
 h5 {
-  color: var(--color1);
-  font-family: "League Spartan", sans-serif;
-}
-h4 {
   color: var(--color3);
   font-family: "League Spartan", sans-serif;
 }
@@ -69,7 +67,10 @@ h4 {
 
 section {
   min-height: 100vh;
-  padding-top: 6rem;
+  padding-top: 4rem;
+  padding-left: 8rem;
+  padding-right: 8rem;
+  padding-bottom: 4rem;
 }
 
 .btn:hover {

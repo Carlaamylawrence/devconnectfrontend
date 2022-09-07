@@ -31,15 +31,21 @@
       :key="project.project_id"
       :project="project"
     >
-      <div class="singleProjectContainer">
-        <div class="singleProjectImg">
+      <div class="singleProjectContainer row">
+        <div class="singleProjectImg col-lg-4">
           <img
             class="img-fluid"
+            style="width: 8rem"
             src="https://i.postimg.cc/CL75Kf2j/single-Project.png"
           />
+          <p>If you are interested contact us at:</p>
+          <h4>{{ project.email }}</h4>
         </div>
-        <div class="singleProjectInfo">
+        <div class="singleProjectInfo col-lg-6">
+          <h4>{{ project.title }}</h4>
+          <p>{{ project.type }}</p>
           <p>{{ project.description }}</p>
+          <p>{{ project.tech }}</p>
         </div>
       </div>
     </div>
@@ -56,7 +62,95 @@
               aria-label="Close"
             ></button>
           </div>
-          <div class="modal-body">...</div>
+          <div class="modal-body">
+            <form @submit.prevent="updateProject">
+              <!-- Type of Developer -->
+              <div class="form-floating experience mb-3">
+                <select
+                  class="form-select"
+                  aria-label="Default select example"
+                  v-model="title"
+                >
+                  <option value="Front-end">Front-End</option>
+                  <option value="Backend">Backend</option>
+                  <option value="Fullstack">FullStack</option>
+                </select>
+                <label class="inputLabel" for="floatingColor"
+                  >Type of Developer</label
+                >
+              </div>
+              <div class="form-floating mb-3">
+                <input
+                  type="text"
+                  class="form-control"
+                  required
+                  v-model="description"
+                  id="floatingInput"
+                  placeholder="Project description"
+                />
+              </div>
+              <!-- Experience -->
+              <div class="form-floating experience mb-3">
+                <select
+                  class="form-select"
+                  aria-label="Default select example"
+                  v-model="type"
+                >
+                  <option value="Junior">Junior</option>
+                  <option value="Mid">Mid-Level</option>
+                  <option value="Senior">Senior</option>
+                </select>
+                <label class="inputLabel" for="floatingColor"
+                  >Level of Experience</label
+                >
+              </div>
+              <div class="form-floating mb-3">
+                <input
+                  type="date"
+                  class="form-control"
+                  required
+                  v-model="deadline"
+                  id="floatingInput"
+                />
+                <label for="floatingInput">Deadline</label>
+              </div>
+              <!-- Technology -->
+              <div class="form-floating technology mb-3">
+                <select
+                  class="form-select"
+                  aria-label="Default select example"
+                  v-model="tech"
+                >
+                  <option value="Cplus">C++</option>
+                  <option value="Csharp">C#</option>
+                  <option value="Java">Java</option>
+                  <option value="Javascript">javascript</option>
+                  <option value="MySql">MySql</option>
+                  <option value="Node">Node</option>
+                  <option value="Python">Python</option>
+                  <option value="Ruby">Ruby</option>
+                </select>
+                <label class="inputLabel" for="floatingColor"
+                  >Required tech</label
+                >
+              </div>
+              <div class="form-floating mb-3">
+                <input
+                  type="email"
+                  class="form-control"
+                  required
+                  v-model="email"
+                  id="floatingInput"
+                  placeholder="Email to Contact"
+                />
+              </div>
+              <div class="pushBtns">
+                <button type="submit" class="btn mt-2" value="editProduct">
+                  SAVE
+                </button>
+              </div>
+            </form>
+          </div>
           <div class="modal-footer">
             <button type="button" class="btn" data-bs-dismiss="modal">
               Close
@@ -79,7 +173,95 @@
               aria-label="Close"
             ></button>
           </div>
-          <div class="modal-body">...</div>
+          <div class="modal-body">
+            <form @submit.prevent="addProject">
+              <!-- Type of Developer -->
+              <div class="form-floating experience mb-3">
+                <select
+                  class="form-select"
+                  aria-label="Default select example"
+                  v-model="title"
+                >
+                  <option value="Front-end">Front-End</option>
+                  <option value="Backend">Backend</option>
+                  <option value="Fullstack">FullStack</option>
+                </select>
+                <label class="inputLabel" for="floatingColor"
+                  >Type of Developer</label
+                >
+              </div>
+              <div class="form-floating mb-3">
+                <input
+                  type="text"
+                  class="form-control"
+                  required
+                  v-model="description"
+                  id="floatingInput"
+                  placeholder="Project description"
+                />
+              </div>
+              <!-- Experience -->
+              <div class="form-floating experience mb-3">
+                <select
+                  class="form-select"
+                  aria-label="Default select example"
+                  v-model="type"
+                >
+                  <option value="Junior">Junior</option>
+                  <option value="Mid">Mid-Level</option>
+                  <option value="Senior">Senior</option>
+                </select>
+                <label class="inputLabel" for="floatingColor"
+                  >Level of Experience</label
+                >
+              </div>
+              <div class="form-floating mb-3">
+                <input
+                  type="date"
+                  class="form-control"
+                  required
+                  v-model="deadline"
+                  id="floatingInput"
+                />
+                <label for="floatingInput">Deadline</label>
+              </div>
+              <!-- Technology -->
+              <div class="form-floating technology mb-3">
+                <select
+                  class="form-select"
+                  aria-label="Default select example"
+                  v-model="tech"
+                >
+                  <option value="Cplus">C++</option>
+                  <option value="Csharp">C#</option>
+                  <option value="Java">Java</option>
+                  <option value="Javascript">javascript</option>
+                  <option value="MySql">MySql</option>
+                  <option value="Node">Node</option>
+                  <option value="Python">Python</option>
+                  <option value="Ruby">Ruby</option>
+                </select>
+                <label class="inputLabel" for="floatingColor"
+                  >Required tech</label
+                >
+              </div>
+              <div class="form-floating mb-3">
+                <input
+                  type="email"
+                  class="form-control"
+                  required
+                  v-model="email"
+                  id="floatingInput"
+                  placeholder="Email to Contact"
+                />
+              </div>
+              <div class="pushBtns">
+                <button type="submit" class="btn mt-2" value="addProduct">
+                  SAVE
+                </button>
+              </div>
+            </form>
+          </div>
           <div class="modal-footer">
             <button type="button" class="btn" data-bs-dismiss="modal">
               Close
@@ -119,6 +301,17 @@ export default {
     this.$store.dispatch("getProject", this.$route.params.id);
   },
   methods: {
+    addProject() {
+      const project = {
+        title: this.title,
+        description: this.description,
+        deadline: this.deadline,
+        type: this.type,
+        tech: this.type,
+        email: this.email,
+      };
+      this.$store.dispatch("addProject", project);
+    },
     updateProject() {
       this.$store.dispatch("updateProject", this.project);
     },
@@ -132,5 +325,16 @@ export default {
 #single {
   min-height: 100vh;
   margin-top: 8rem;
+}
+
+.singleProjectContainer {
+  display: flex;
+  justify-content: center;
+  background-color: rgb(255 255 255 / 9%);
+}
+
+.alterBtns {
+  display: flex;
+  justify-content: center;
 }
 </style>

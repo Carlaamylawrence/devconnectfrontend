@@ -2,18 +2,15 @@
   <section id="container">
     <div class="projectDisplay">
       <!-- Tech stack -->
-      <div class="search-wrapper">
-        <input
-          class="search-input"
-          type="text"
-          v-model="search"
-          placeholder="Search"
-        />
-
-        <button class="btn ms-2" @click="sortProjects">
-          Sort By Technology
-        </button>
-        <div class="form-floating experience">
+      <div class="sort-options pb-3">
+        <div class="search-wrapper">
+          <input
+            class="search-input"
+            type="text"
+            v-model="search"
+            placeholder="Search"
+          />
+          <button class="btn ms-2" @click="sortProjects">Alphabet</button>
           <select class="form-select ms-3" v-model="tech">
             <option value="all">All</option>
             <option value="Cplus">C++</option>
@@ -25,7 +22,6 @@
             <option value="Python">Python</option>
             <option value="Ruby">Ruby</option>
           </select>
-          <label for="floatingColor">Tech Stack neeeded</label>
         </div>
       </div>
 
@@ -36,6 +32,11 @@
           :key="project.id"
           :project="project"
         />
+      </div>
+      <div class="loader" v-else>
+        <div class="logoDEV">
+          <img class="logo" src="https://i.postimg.cc/KzHmWhRs/logo.png" />
+        </div>
       </div>
     </div>
   </section>
@@ -93,8 +94,15 @@ export default {
   background-size: cover;
 }
 
-.sort-options {
+.search-wrapper {
   display: flex;
+  justify-content: center;
+}
+
+.projectGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
   justify-content: center;
 }
 </style>

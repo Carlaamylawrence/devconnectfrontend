@@ -1,50 +1,53 @@
 <template>
   <section id="container">
-    <div class="profilePicture">
-      <img
-        class="profilepicture mt-5"
-        alt="profilepicture"
-        :src="user.avatar"
-      />
-    </div>
-
-    <div class="profileHeader">
-      <h4>HI, I AM</h4>
-      <h3>{{ user.fullname }}</h3>
-    </div>
-    <div class="editBtn">
-      <!-- EDIT BUTTON -->
-      <button
-        type="button"
-        class="btn"
-        data-bs-toggle="modal"
-        data-bs-target="#exampleModal"
-      >
-        <i class="fa-solid fa-gear"></i>
-      </button>
-    </div>
-    <div class="deleteBtn">
-      <!-- DELETE BUTTON -->
-      <button type="button" class="btn" @click="deleteUser(id)">
-        <i class="fa-solid fa-trash"></i>
-      </button>
-    </div>
-    <div class="profileInfo row">
-      <div class="profileDetails col-lg-6">
-        <p>Location: {{ user.location }}</p>
-        <p>Fluent in: {{ user.technology }}</p>
-        <p>Availible for {{ user.availability }}</p>
-        <p>Experience: {{ user.experience }}</p>
+    <div class="profileGrid row">
+      <div class="profilePicture col-lg-3">
+        <img
+          class="profilepicture mt-5 img-fluid"
+          alt="profilepicture"
+          :src="user.avatar"
+          style="max-width: 12rem"
+        />
       </div>
-      <div class="profileAbout col-lg-6">
-        <p>{{ user.bio }}</p>
-        <div class="exploreBtns">
-          <a :href="user.githubUrl" target="_blank"
-            ><button class="btn">Github</button></a
-          >
-          <a :href="user.portUrl" target="_blank"
-            ><button class="btn">Portfolio</button></a
-          >
+
+      <div class="profileHeader col-lg-6">
+        <h3>HI, I AM</h3>
+        <h2>{{ user.fullname }}</h2>
+      </div>
+      <div class="editBtn">
+        <!-- EDIT BUTTON -->
+        <button
+          type="button"
+          class="btn"
+          data-bs-toggle="modal"
+          data-bs-target="#exampleModal"
+        >
+          <i class="fa-solid fa-gear"></i>
+        </button>
+      </div>
+      <div class="deleteBtn">
+        <!-- DELETE BUTTON -->
+        <button type="button" class="btn" @click="deleteUser(id)">
+          <i class="fa-solid fa-trash"></i>
+        </button>
+      </div>
+      <div class="profileInfo row">
+        <div class="profileDetails col-lg-6">
+          <p>Location: {{ user.location }}</p>
+          <p>Fluent in: {{ user.technology }}</p>
+          <p>Availible for {{ user.availability }}</p>
+          <p>Experience: {{ user.experience }}</p>
+        </div>
+        <div class="profileAbout col-lg-6">
+          <p>{{ user.bio }}</p>
+          <div class="exploreBtns">
+            <a :href="user.githubUrl" target="_blank"
+              ><button class="btn">Github</button></a
+            >
+            <a :href="user.portUrl" target="_blank"
+              ><button class="btn">Portfolio</button></a
+            >
+          </div>
         </div>
       </div>
     </div>
@@ -73,21 +76,20 @@
         <div class="modal-body">
           <form>
             <!-- Experience -->
-            <div class="form-floating experience">
+            <div class="form-floating experience mb-3">
               <select
                 class="form-select"
                 aria-label="Default select example"
-                v-model="experience"
+                v-model="type"
               >
-                <option value="Junior">0-2 YEARS</option>
-                <option value="Mid">3-5 YEARS</option>
-                <option value="Senior">5-8 YEARS</option>
+                <option value="Junior">Junior</option>
+                <option value="Mid">Mid-Level</option>
+                <option value="Senior">Senior</option>
               </select>
               <label class="inputLabel" for="floatingColor"
-                >Years of Experience</label
+                >Level of Experience</label
               >
             </div>
-
             <!-- Availabilty -->
             <div class="form-floating availabilty">
               <select
@@ -181,5 +183,18 @@ export default {
   flex-direction: column;
   border-radius: 10px;
   box-shadow: 0 0 0 8px rgba(255, 255, 255, 0.2);
+}
+
+.profileGrid {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+
+.profileHeader {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 </style>

@@ -36,7 +36,7 @@
 
           <!-- Button to submit  -->
           <div class="loginBtn">
-            <button type="submit" class="btn mt-2 =" value="Login">
+            <button type="submit" class="btn mt-2 " value="Login">
               LOGIN
             </button>
           </div>

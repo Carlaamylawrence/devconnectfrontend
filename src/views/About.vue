@@ -24,7 +24,7 @@
           and provide the deadline and experience needed.
         </p>
       </div>
-      <div class="why col-lg-6">
+      <div class="why col-lg-6 d-flex justify-content-center">
         <img
           src="https://i.postimg.cc/xjp1q5B9/358939-CF-F916-4-C1-F-8-C71-E52-E0495629-C.png"
           class="img-fluid"

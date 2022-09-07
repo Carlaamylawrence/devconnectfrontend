@@ -61,6 +61,8 @@ export default createStore({
     },
   },
   actions: {
+    //USERS
+    // GET SINGLE USER
     getUser: async (context, id) => {
       fetch("http://localhost:3050/users/" + id)
         .then((res) => res.json())
@@ -68,6 +70,8 @@ export default createStore({
       // .then((json) => context.commit("setUser", json))
       // .catch((err) => console.log(err.message));
     },
+
+    // GET ALL USERS
     getUsers: async (context) => {
       // fetch("https://xcjewels.herokuapp.com/users")
       fetch("http://localhost:3050/users")
@@ -75,6 +79,7 @@ export default createStore({
         .then((json) => context.commit("setUsers", json));
     },
 
+    // LOGIN
     login: async (context, payload) => {
       // const { email, password } = payload;
       // fetch(`https://xcjewels.herokuapp.com/users/login`, {
@@ -93,6 +98,7 @@ export default createStore({
         });
     },
 
+    // REGISTER AS DEV
     devRegister: async (context, user) => {
       // fetch("https://xcjewels.herokuapp.com/users/register", {
       fetch("http://localhost:3050/users/register", {
@@ -111,6 +117,7 @@ export default createStore({
         });
     },
 
+    // REGISTER AS CLIENT
     clientRegister: async (context, user) => {
       // fetch("https://xcjewels.herokuapp.com/users/register", {
       fetch("http://localhost:3050/users/register", {
@@ -129,7 +136,7 @@ export default createStore({
         });
     },
 
-    // DELETE A PROJECT
+    // DELETE A USER
     deleteUser: async (context, id) => {
       fetch("http://localhost:3050/users/" + id, {
         method: "DELETE",
@@ -137,55 +144,8 @@ export default createStore({
         .then((response) => response.json())
         .then((json) => context.dispatch("getUsers"));
     },
-    // PROJECTS
-    // SHOW ALL OF EM PROJECTS
-    getProjects: async (context) => {
-      fetch("http://localhost:3050/projects")
-        .then((response) => response.json())
-        .then((json) => context.commit("setProjects", json));
-    },
 
-    // SHOW ONE PROJECT
-    getProject: async (context, id) => {
-      console.log(id);
-      fetch("http://localhost:3050/projects/" + id)
-        .then((response) => response.json())
-        .then((data) => {
-          console.log(data);
-          context.commit("setProject", data);
-        });
-    },
-
-    // DELETE A PROJECT
-    deleteProject: async (context, id) => {
-      fetch("http://localhost:3050/projects/" + id, {
-        method: "DELETE",
-      })
-        .then((response) => response.json())
-        .then((json) => context.dispatch("getProjects"));
-    },
-    // UPDATE A PROJECT
-    updateProject: async (context, project) => {
-      const { project_id, description, type, deadline, tech, email, postedBy } =
-        project;
-      fetch("http://localhost:3050/projects/" + id, {
-        method: "PATCH",
-        body: JSON.stringify({
-          description: description,
-          type: type,
-          deadline: deadline,
-          tech: tech,
-          email: email,
-          postedBy,
-        }),
-        headers: {
-          "Content-type": "application/json; charset=UTF-8",
-        },
-      })
-        .then((response) => response.json())
-        .then((json) => context.commit("setProject", json));
-    },
-
+    // UPDATE USER INFO
     updateUserInfo: async (context, id) => {
       console.log(id);
       const {
@@ -218,6 +178,66 @@ export default createStore({
       })
         .then((response) => response.json())
         .then((json) => context.commit("setUser", json));
+    },
+    // PROJECTS
+    // SHOW ALL OF EM PROJECTS
+    getProjects: async (context) => {
+      fetch("http://localhost:3050/projects")
+        .then((response) => response.json())
+        .then((json) => context.commit("setProjects", json));
+    },
+
+    // SHOW ONE PROJECT
+    getProject: async (context, id) => {
+      console.log(id);
+      fetch("http://localhost:3050/projects/" + id)
+        .then((response) => response.json())
+        .then((data) => {
+          console.log(data);
+          context.commit("setProject", data);
+        });
+    },
+
+    // ADD A PROJECT
+    addBook: async (context, project) => {
+      fetch("http://localhost:3050/projects", {
+        method: "POST",
+        body: JSON.stringify(project),
+        headers: {
+          "Content-type": "application/json; charset=UTF-8",
+        },
+      })
+        .then((response) => response.json())
+        .then((json) => context.commit("setProject", json));
+    },
+    // DELETE A PROJECT
+    deleteProject: async (context, id) => {
+      fetch("http://localhost:3050/projects/" + id, {
+        method: "DELETE",
+      })
+        .then((response) => response.json())
+        .then((json) => context.dispatch("getProjects"));
+    },
+    // UPDATE A PROJECT
+    updateProject: async (context, project) => {
+      const { project_id, description, type, deadline, tech, email, postedBy } =
+        project;
+      fetch("http://localhost:3050/projects/" + id, {
+        method: "PATCH",
+        body: JSON.stringify({
+          description: description,
+          type: type,
+          deadline: deadline,
+          tech: tech,
+          email: email,
+          postedBy,
+        }),
+        headers: {
+          "Content-type": "application/json; charset=UTF-8",
+        },
+      })
+        .then((response) => response.json())
+        .then((json) => context.commit("setProject", json));
     },
   },
 

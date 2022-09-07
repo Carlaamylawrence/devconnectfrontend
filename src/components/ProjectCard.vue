@@ -5,9 +5,9 @@
   >
     <div class="projectDisplayCard">
       <h4>{{ project.title }}</h4>
+      <h5>{{ project.type }}</h5>
+      <p>{{ project.tech }}</p>
       <p>{{ project.description }}</p>
-      <p>{{ project.deadline }}</p>
-      <p>{{ project.type }}</p>
     </div>
   </router-link>
 </template>
@@ -23,7 +23,7 @@ export default {
   margin: auto;
   position: relative;
   z-index: 1;
-  background-color: rgba(255, 255, 255, 1);
+  background-color: rgb(255 255 255 / 9%);
   display: flex;
   transition: 0.3s;
   flex-direction: column;
