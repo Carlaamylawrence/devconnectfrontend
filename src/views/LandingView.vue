@@ -1,17 +1,20 @@
 <template>
   <section id="container">
-    <div class="landingContainer row ">
+    <div class="landingContainer row">
       <div class="logoCard col-lg-5">
         <div class="logoDEV">
           <img
             class="floatingImage img-fluid"
-            src="https://i.postimg.cc/sDSBX8YS/E8432-FAB-AFBC-4-FF1-82-DE-9-E0244799-FB8.png" 
+            src="https://i.postimg.cc/sDSBX8YS/E8432-FAB-AFBC-4-FF1-82-DE-9-E0244799-FB8.png"
           />
         </div>
       </div>
       <div class="landingInfo col-lg-6">
         <div class="devConnect">
-          <img class="logo img-fluid" src="https://i.postimg.cc/G2d0F4Vd/EFDF76-BC-E152-4-ADD-A660-ED6-C387-F6441.png">
+          <img
+            class="logo img-fluid"
+            src="https://i.postimg.cc/KzHmWhRs/logo.png"
+          />
         </div>
         <!-- <div class="login-btn">
           <router-link to="/login"
@@ -30,10 +33,11 @@
           </div>
         </div>
         <div class="moreInfo mt-2">
-        <router-link class="aboutRedirect" to="/about"><i class="fa-solid fa-circle-info"></i>Find out more</router-link>
+          <router-link class="aboutRedirect" to="/about"
+            ><i class="fa-solid fa-circle-info"></i>Find out more</router-link
+          >
         </div>
       </div>
-      
     </div>
   </section>
 </template>
@@ -52,13 +56,13 @@ export default {};
   justify-content: center;
   align-items: center;
 }
-.landingInfo{
+.landingInfo {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
-.devConnect{
+.devConnect {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -74,7 +78,7 @@ export default {};
   /* box-shadow: 0 0 0 8px rgba(255, 255, 255, 0.2); */
   padding: 1rem;
 }
-.logo{
+.logo {
   max-height: 200px;
   object-fit: cover;
   filter: drop-shadow(1px 3px 0px rgba(0, 0, 0, 0.7));
@@ -113,11 +117,10 @@ export default {};
 .registerBtns {
   display: flex;
   justify-content: center;
-  gap:10px;
+  gap: 10px;
 }
-a.aboutRedirect{
+a.aboutRedirect {
   color: var(--color3);
   font-size: 1rem;
-
 }
 </style>

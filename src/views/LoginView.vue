@@ -35,7 +35,11 @@
           </div>
 
           <!-- Button to submit  -->
-          <button type="submit" class="btn mt-2 =" value="Login">LOGIN</button>
+          <div class="loginBtn">
+            <button type="submit" class="btn mt-2 =" value="Login">
+              LOGIN
+            </button>
+          </div>
         </form>
         <div v-if="user" class="welcomeUser">
           <p>Welcome</p>
@@ -104,14 +108,15 @@ export default {
   padding: 2rem;
 }
 
-h3,p {
+h3,
+p {
   color: whitesmoke;
 }
 .btn {
   font-family: "League Spartan", sans-serif;
   color: whitesmoke;
   height: 2rem;
-  background-color:#e77755;
+  background-color: #e77755;
   padding: 5px;
   transition: transform 0.2s ease-out;
   box-shadow: 0px 3px 1px #7e43ac;
@@ -125,5 +130,10 @@ h3,p {
 }
 ::placeholder {
   color: purple !important;
+}
+.loginBtn {
+  display: flex;
+  justify-content: center;
+  align-content: center;
 }
 </style>

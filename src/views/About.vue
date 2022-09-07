@@ -2,7 +2,7 @@
   <section id="container">
     <div class="about p-5 row">
       <div class="who col-lg-6">
-        <h2>WHAT IS DEVCONNECT</h2>
+        <h2>WHAT IS DEVCONNECT?</h2>
         <h4>
           Do you need a team of expert developers? Or are you looking for a new
           project?
@@ -15,7 +15,7 @@
           interested in taking on freelance, exposure, experience or maybe just
           a passion project.
         </p>
-        <h4>HOW DOES IT WORK</h4>
+        <h4>How does it work?</h4>
         <p>
           Sign up as a DEV and browse global freelance projects or sign up as a
           client and post your project. Developers may market themselves through
