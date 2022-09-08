@@ -12,6 +12,11 @@ export default createStore({
   },
   getters: {},
   mutations: {
+    logout:(state)=>{
+      state.user= "",
+      state.jwt= "",
+      state.users= "";
+    },
     setJwt: (state, jwt) => {
       state.jwt = jwt;
     },

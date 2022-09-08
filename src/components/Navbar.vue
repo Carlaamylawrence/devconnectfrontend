@@ -17,6 +17,9 @@
       <li class="nav-link" @click="toggleNav()" v-if="user">
         <router-link to="/profile">PROFILE</router-link>
       </li>
+      <li class="nav-link"  @click="Logout()"  v-if="user">
+        <router-link to="/">LOGOUT</router-link>
+      </li>
       <li class="nav-link" @click="toggleNav()" v-else>
         <router-link to="/login">LOGIN</router-link>
       </li>
@@ -43,6 +46,9 @@ export default {
   methods: {
     toggleNav() {
       this.isActive = !this.isActive;
+    },
+    Logout() {
+      this.$store.commit("logout");
     },
   },
   computed: {
