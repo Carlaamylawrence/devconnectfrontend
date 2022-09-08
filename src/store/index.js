@@ -203,30 +203,35 @@ export default createStore({
     },
 
     // ADD A PROJECT
-    addBook: async (context, project) => {
+    addProject: async (context, project) => {
       fetch("http://localhost:3050/projects", {
         method: "POST",
         body: JSON.stringify(project),
         headers: {
           "Content-type": "application/json; charset=UTF-8",
+          "x-auth-token": project.token,
         },
       })
         .then((response) => response.json())
         .then((json) => context.commit("setProject", json));
     },
     // DELETE A PROJECT
-    deleteProject: async (context, id) => {
-      fetch("http://localhost:3050/projects/" + id, {
+    deleteProject: async (context, project) => {
+      fetch("http://localhost:3050/projects/" + project.id, {
         method: "DELETE",
+        headers: {
+          "Content-type": "application/json; charset=UTF-8",
+          "x-auth-token": project.token,
+        },
       })
         .then((response) => response.json())
         .then((json) => context.dispatch("getProjects"));
     },
     // UPDATE A PROJECT
     updateProject: async (context, project) => {
-      const { project_id, title, description, type, tech, email, postedBy } =
-        project;
-      fetch("http://localhost:3050/projects/" + id, {
+      console.log(project);
+      const { title, description, type, tech, email, postedBy } = project;
+      fetch("http://localhost:3050/projects/updateitem/" + project.id, {
         method: "PATCH",
         body: JSON.stringify({
           title: title,
@@ -234,14 +239,19 @@ export default createStore({
           type: type,
           tech: tech,
           email: email,
-          postedBy,
+          postedBy: postedBy,
+          id: project.id,
         }),
         headers: {
           "Content-type": "application/json; charset=UTF-8",
+          "x-auth-token": project.token,
         },
       })
         .then((response) => response.json())
-        .then((json) => context.commit("setProject", json));
+        .then((json) => {
+          context.commit("setProject", json);
+          console.log(json);
+        });
     },
   },
 
