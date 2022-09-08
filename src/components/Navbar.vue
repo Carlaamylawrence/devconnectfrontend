@@ -4,20 +4,21 @@
       <li class="nav-link" @click="toggleNav()">
         <router-link to="/">HOME</router-link>
       </li>
-      <li class="nav-link" @click="toggleNav()">
-        <router-link to="/login">LOGIN</router-link>
-      </li>
+
       <li class="nav-link" @click="toggleNav()">
         <router-link to="/about">ABOUT</router-link>
       </li>
-      <li class="nav-link" @click="toggleNav()">
+      <li class="nav-link" @click="toggleNav()" v-if="user">
         <router-link to="/devs">DEVS</router-link>
       </li>
-      <li class="nav-link" @click="toggleNav()">
+      <li class="nav-link" @click="toggleNav()" v-if="user">
         <router-link to="/projects">PROJECTS</router-link>
       </li>
-      <li class="nav-link" @click="toggleNav()">
+      <li class="nav-link" @click="toggleNav()" v-if="user">
         <router-link to="/profile">PROFILE</router-link>
+      </li>
+      <li class="nav-link" @click="toggleNav()" v-else>
+        <router-link to="/login">LOGIN</router-link>
       </li>
     </ul>
   </nav>

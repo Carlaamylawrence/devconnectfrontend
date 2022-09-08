@@ -29,6 +29,17 @@
           <fieldset>
             <div class="form-floating">
               <input
+                type="text"
+                class="form-control"
+                required
+                v-model="fullname"
+                id="floatingInput"
+                placeholder="John Doe"
+              />
+              <!-- <label class="inputLabel" for="floatingInput">Email address</label> -->
+            </div>
+            <div class="form-floating">
+              <input
                 type="email"
                 class="form-control"
                 required
@@ -84,6 +95,7 @@ export default {
   },
   data() {
     return {
+      fullname: "",
       email: "",
       password: "",
       userRole: "",
@@ -92,9 +104,10 @@ export default {
   methods: {
     clientRegister() {
       let user = {
+        fullname: this.fullname,
         email: this.email,
         password: this.password,
-        userRole: client,
+        userRole: this.userRole,
       };
       this.$store.dispatch("clientRegister", user);
     },

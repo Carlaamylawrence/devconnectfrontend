@@ -120,7 +120,7 @@ export default createStore({
     // REGISTER AS CLIENT
     clientRegister: async (context, user) => {
       // fetch("https://xcjewels.herokuapp.com/users/register", {
-      fetch("http://localhost:3050/users/register", {
+      fetch("http://localhost:3050/users/registerclient", {
         method: "POST",
         body: JSON.stringify(user),
         // mode: cors,

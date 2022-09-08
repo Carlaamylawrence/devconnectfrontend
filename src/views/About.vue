@@ -27,7 +27,7 @@
       <div class="why col-lg-6 d-flex justify-content-center">
         <img
           src="https://i.postimg.cc/xjp1q5B9/358939-CF-F916-4-C1-F-8-C71-E52-E0495629-C.png"
-          class="img-fluid"
+          class="aboutImage img-fluid"
         />
       </div>
     </div>
@@ -48,5 +48,10 @@ export default {};
   flex-direction: column;
   border-radius: 10px;
   box-shadow: 0 0 0 8px rgba(255, 255, 255, 0.2);
+}
+
+.aboutImage {
+  object-fit: contain;
+  aspect-ratio: 1;
 }
 </style>

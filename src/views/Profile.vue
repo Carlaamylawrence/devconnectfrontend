@@ -1,54 +1,62 @@
 <template>
   <section id="container">
-    <div class="profileGrid row">
-      <div class="profilePicture col-lg-3">
-        <img
-          class="profilepicture mt-5 img-fluid"
-          alt="profilepicture"
-          :src="user.avatar"
-          style="max-width: 12rem"
-        />
-      </div>
+    <div v-if="user.userRole === 'dev'">
+      <div class="profileGrid row">
+        <div class="profilePicture col-lg-3">
+          <img
+            class="profilepicture mt-5 img-fluid"
+            alt="profilepicture"
+            :src="user.avatar"
+            style="max-width: 12rem"
+          />
+        </div>
 
+        <div class="profileHeader col-lg-6">
+          <h3>HI, I AM</h3>
+          <h2>{{ user.fullname }}</h2>
+        </div>
+        <div class="editBtn">
+          <!-- EDIT BUTTON -->
+          <button
+            type="button"
+            class="btn"
+            data-bs-toggle="modal"
+            data-bs-target="#exampleModal"
+          >
+            <i class="fa-solid fa-gear"></i>
+          </button>
+        </div>
+        <div class="deleteBtn">
+          <!-- DELETE BUTTON -->
+          <button type="button" class="btn" @click="deleteUser(id)">
+            <i class="fa-solid fa-trash"></i>
+          </button>
+        </div>
+        <div class="profileInfo row">
+          <div class="profileDetails col-lg-6">
+            <p>Location: {{ user.location }}</p>
+            <p>Fluent in: {{ user.technology }}</p>
+            <p>Availible for {{ user.availability }}</p>
+            <p>Experience: {{ user.experience }}</p>
+          </div>
+          <div class="profileAbout col-lg-6">
+            <p>{{ user.bio }}</p>
+            <div class="exploreBtns">
+              <a :href="user.githubUrl" target="_blank"
+                ><button class="btn">Github</button></a
+              >
+              <a :href="user.portUrl" target="_blank"
+                ><button class="btn">Portfolio</button></a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div v-if="user.userRole === 'client' || 'admin'">
       <div class="profileHeader col-lg-6">
         <h3>HI, I AM</h3>
         <h2>{{ user.fullname }}</h2>
-      </div>
-      <div class="editBtn">
-        <!-- EDIT BUTTON -->
-        <button
-          type="button"
-          class="btn"
-          data-bs-toggle="modal"
-          data-bs-target="#exampleModal"
-        >
-          <i class="fa-solid fa-gear"></i>
-        </button>
-      </div>
-      <div class="deleteBtn">
-        <!-- DELETE BUTTON -->
-        <button type="button" class="btn" @click="deleteUser(id)">
-          <i class="fa-solid fa-trash"></i>
-        </button>
-      </div>
-      <div class="profileInfo row">
-        <div class="profileDetails col-lg-6">
-          <p>Location: {{ user.location }}</p>
-          <p>Fluent in: {{ user.technology }}</p>
-          <p>Availible for {{ user.availability }}</p>
-          <p>Experience: {{ user.experience }}</p>
-        </div>
-        <div class="profileAbout col-lg-6">
-          <p>{{ user.bio }}</p>
-          <div class="exploreBtns">
-            <a :href="user.githubUrl" target="_blank"
-              ><button class="btn">Github</button></a
-            >
-            <a :href="user.portUrl" target="_blank"
-              ><button class="btn">Portfolio</button></a
-            >
-          </div>
-        </div>
       </div>
     </div>
   </section>
