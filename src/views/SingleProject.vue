@@ -304,7 +304,7 @@ export default {
         type: this.type,
         tech: this.type,
         email: this.email,
-        postedBy: this.postedBy,
+        postedBy: this.user.id,
         token: this.token,
       });
     },
@@ -318,6 +318,7 @@ export default {
         email: this.email,
         token: this.token,
       });
+      winf;
     },
     deleteProject(id) {
       this.$store.dispatch("deleteProject", { id: id, token: this.token });

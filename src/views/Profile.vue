@@ -54,9 +54,15 @@
       </div>
     </div>
     <div v-if="user.userRole === 'client' || 'admin'">
+      <div class="deleteBtn">
+        <!-- DELETE BUTTON -->
+        <button type="button" class="btn" @click="deleteUser(user.id)">
+          <i class="fa-solid fa-trash"></i>
+        </button>
+      </div>
       <div class="profileHeader col-lg-6">
         <h3>HI, I AM</h3>
-        <h2>{{ user.fullname }}</h2>
+        <h2>{{ user.email }}</h2>
       </div>
     </div>
   </section>
@@ -176,7 +182,7 @@ export default {
       });
     },
     deleteUser(id) {
-      this.$store.dispatch("deleteUser", id);
+      this.$store.dispatch("deleteUser", { id: id, token: this.token });
     },
   },
 };

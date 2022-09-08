@@ -137,9 +137,13 @@ export default createStore({
     },
 
     // DELETE A USER
-    deleteUser: async (context, id) => {
-      fetch("http://localhost:3050/users/" + id, {
+    deleteUser: async (context, user) => {
+      fetch("http://localhost:3050/users/" + user.id, {
         method: "DELETE",
+        headers: {
+          "Content-type": "application/json; charset=UTF-8",
+          "x-auth-token": user.token,
+        },
       })
         .then((response) => response.json())
         .then((json) => context.dispatch("getUsers"));
