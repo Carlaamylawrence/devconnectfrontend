@@ -23,7 +23,7 @@
           <option value="Ruby">Ruby</option>
         </select>
       </div>
-      <div class="devGrid" v-if="users">
+      <div class="devGrid" v-if="user">
         <AllProfiles v-for="user in users" :key="user.id" :user="user" />
       </div>
       <div class="loader" v-else>

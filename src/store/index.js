@@ -12,11 +12,11 @@ export default createStore({
   },
   getters: {},
   mutations: {
-    logout:(state)=>{
-      state.user= "",
-      state.jwt= "",
-      state.users= "";
-    },
+    // logout:(state)=>{
+    //   state.user= "",
+    //   state.jwt= "",
+    //   state.users= "";
+    // },
     setJwt: (state, jwt) => {
       state.jwt = jwt;
     },
@@ -79,11 +79,12 @@ export default createStore({
     // GET ALL USERS
     getUsers: async (context) => {
       // fetch("https://xcjewels.herokuapp.com/users")
-      fetch("http://localhost:3050/users")
+      fetch("http://localhost:3050/users/devs")
         .then((response) => response.json())
         .then((json) => context.commit("setUsers", json));
     },
 
+  
     // LOGIN
     login: async (context, payload) => {
       // const { email, password } = payload;

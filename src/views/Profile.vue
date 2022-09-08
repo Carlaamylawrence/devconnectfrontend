@@ -32,6 +32,11 @@
             <i class="fa-solid fa-trash"></i>
           </button>
         </div>
+        <div class="logoutBtn">
+          <button type="button" class="btn"  @click="Logout()">
+            <router-link to="/"><i class="fa-solid fa-right-from-bracket"></i></router-link>
+          </button>
+        </div>
         <div class="profileInfo row">
           <div class="profileDetails col-lg-6">
             <p>Location: {{ user.location }}</p>
@@ -53,15 +58,37 @@
         </div>
       </div>
     </div>
-    <div v-if="user.userRole === 'client' || 'admin'">
+    <div v-if="user.userRole === 'client' ">
       <div class="deleteBtn">
         <!-- DELETE BUTTON -->
         <button type="button" class="btn" @click="deleteUser(user.id)">
           <i class="fa-solid fa-trash"></i>
         </button>
       </div>
+      <div class="logoutBtn">
+          <button type="button" class="btn"  @click="Logout()">
+            <router-link to="/"><i class="fa-solid fa-right-from-bracket"></i></router-link>
+          </button>
+        </div>
       <div class="profileHeader col-lg-6">
-        <h3>HI, I AM</h3>
+        <h3>HI, I AM A CLIENT</h3>
+        <h2>{{ user.email }}</h2>
+      </div>
+    </div>
+    <div v-if="user.userRole === 'admin'">
+      <div class="deleteBtn">
+        <!-- DELETE BUTTON -->
+        <button type="button" class="btn" @click="deleteUser(user.id)">
+          <i class="fa-solid fa-trash"></i>
+        </button>
+        <div class="logoutBtn">
+          <button type="button" class="btn"  @click="Logout()">
+            <router-link to="/"><i class="fa-solid fa-right-from-bracket"></i></router-link>
+          </button>
+        </div>
+      </div>
+      <div class="profileHeader col-lg-6">
+        <h3>HI, I AM AN ADMIN</h3>
         <h2>{{ user.email }}</h2>
       </div>
     </div>
@@ -169,6 +196,7 @@ export default {
     token() {
       return this.$store.state.jwt;
     },
+   
   },
   methods: {
     updateUserInfo() {
@@ -184,6 +212,9 @@ export default {
     deleteUser(id) {
       this.$store.dispatch("deleteUser", { id: id, token: this.token });
     },
+    //     Logout() {
+    //   this.$store.dispatch("logout");
+    // },
   },
 };
 </script>
