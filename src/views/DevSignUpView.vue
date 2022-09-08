@@ -43,7 +43,7 @@
                 required
                 v-model="email"
                 id="floatingInput"
-                placeholder="name@example.com"
+                placeholder="Your email @"
               />
               <!-- <label for="floatingInput">Email address</label> -->
             </div>
@@ -91,20 +91,41 @@
               </select>
               <label class="inputLabel" for="floatingColor">Gender</label>
             </div>
-
-            <!-- Availabilty -->
-            <div class="form-floating availabilty">
+            <!-- BIO -->
+            <div class="form-floating mb-3">
+              <textarea
+                v-model="bio"
+                class="form-control"
+                placeholder="Let us know who you are"
+                id="floatingTextarea"
+                style="height: 100px"
+              ></textarea>
+            </div>
+            <!-- LOCATION -->
+            <div class="form-floating">
+              <input
+                type="text"
+                class="form-control"
+                required
+                v-model="location"
+                id="floatingInput"
+                placeholder="Location"
+              />
+              <!-- <label for="floatingInput">Github Url</label> -->
+            </div>
+            <!-- availability -->
+            <div class="form-floating availability">
               <select
                 class="form-select"
                 aria-label="Default select example"
-                v-model="availabilty"
+                v-model="availability"
               >
                 <option value="quickie">0-3 Months</option>
                 <option value="contract">3-6 Months</option>
                 <option value="longterm">6+ Months</option>
               </select>
               <label class="inputLabel" for="floatingColor"
-                >Type of Availabilty</label
+                >Type of availability</label
               >
             </div>
             <!-- Technology -->
@@ -135,7 +156,7 @@
                 required
                 v-model="portUrl"
                 id="floatingInput"
-                placeholder="www.portfolio.com"
+                placeholder="Portfolio URL"
               />
               <!-- <label for="floatingInput">Portfolio Url</label> -->
             </div>
@@ -147,7 +168,7 @@
                 required
                 v-model="githubUrl"
                 id="floatingInput"
-                placeholder="www.github.com"
+                placeholder="Github URL"
               />
               <!-- <label for="floatingInput">Github Url</label> -->
             </div>
@@ -189,7 +210,9 @@ export default {
       password: "",
       experience: "",
       avatar: "",
-      availabilty: "",
+      bio: "",
+      location: "",
+      availability: "",
       technology: "",
       portUrl: "",
       githubUrl: "",
@@ -203,8 +226,10 @@ export default {
         email: this.email,
         password: this.password,
         experience: this.experience,
+        bio: this.bio,
+        location: this.location,
         avatar: this.avatar,
-        availabilty: this.availability,
+        availability: this.availability,
         technology: this.technology,
         portUrl: this.portUrl,
         githubUrl: this.githubUrl,

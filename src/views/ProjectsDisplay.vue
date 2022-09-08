@@ -51,9 +51,9 @@ export default {
   data() {
     return {
       search: "",
+      title: "",
       description: "",
       type: "",
-      deadline: "",
       tech: "all",
       postedBy: "",
       project: "",

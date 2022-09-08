@@ -8,7 +8,7 @@ export default createStore({
     projects: null,
     asc: true,
     jwt: null,
-    // url: "https://yourdevconnect.herokuapp.com/",
+    // url: "https://yourdevconnect.herokuapp.com/users",
   },
   getters: {},
   mutations: {
@@ -146,20 +146,21 @@ export default createStore({
     },
 
     // UPDATE USER INFO
-    updateUserInfo: async (context, id) => {
-      console.log(id);
+    updateUserInfo: async (context, user) => {
       const {
         fullname,
         email,
         password,
         experience,
         avatar,
-        availabilty,
+        bio,
+        location,
+        availability,
         portUrl,
         githubUrl,
         userRole,
       } = user;
-      fetch("http://localhost:3050/users/" + id, {
+      fetch("http://localhost:3050/users/" + user.id, {
         method: "PATCH",
         body: JSON.stringify({
           fullname: fullname,
@@ -167,13 +168,16 @@ export default createStore({
           password: password,
           experience: experience,
           avatar: avatar,
-          availabilty: availabilty,
+          bio: bio,
+          location: location,
+          availability: availability,
           portUrl: portUrl,
           githubUrl: githubUrl,
           userRole: userRole,
         }),
         headers: {
           "Content-type": "application/json; charset=UTF-8",
+          "x-auth-token": user.token,
         },
       })
         .then((response) => response.json())
@@ -220,14 +224,14 @@ export default createStore({
     },
     // UPDATE A PROJECT
     updateProject: async (context, project) => {
-      const { project_id, description, type, deadline, tech, email, postedBy } =
+      const { project_id, title, description, type, tech, email, postedBy } =
         project;
       fetch("http://localhost:3050/projects/" + id, {
         method: "PATCH",
         body: JSON.stringify({
+          title: title,
           description: description,
           type: type,
-          deadline: deadline,
           tech: tech,
           email: email,
           postedBy,

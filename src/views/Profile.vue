@@ -74,13 +74,13 @@
           ></button>
         </div>
         <div class="modal-body">
-          <form>
+          <form @submit.prevent="updateUserInfo">
             <!-- Experience -->
             <div class="form-floating experience mb-3">
               <select
                 class="form-select"
                 aria-label="Default select example"
-                v-model="type"
+                v-model="experience"
               >
                 <option value="Junior">Junior</option>
                 <option value="Mid">Mid-Level</option>
@@ -91,18 +91,18 @@
               >
             </div>
             <!-- Availabilty -->
-            <div class="form-floating availabilty">
+            <div class="form-floating availability">
               <select
                 class="form-select"
                 aria-label="Default select example"
-                v-model="availabilty"
+                v-model="availability"
               >
                 <option value="quickie">0-3 Months</option>
                 <option value="contract">3-6 Months</option>
                 <option value="longterm">6+ Months</option>
               </select>
               <label class="inputLabel" for="floatingColor"
-                >Type of Availabilty</label
+                >Type of availability</label
               >
             </div>
             <!-- PORTFOLIO -->
@@ -140,14 +140,32 @@
 </template>
 <script>
 export default {
+  data() {
+    return {
+      experience: "",
+      availability: "",
+      portUrl: "",
+      githubUrl: "",
+    };
+  },
   computed: {
     user() {
       return this.$store.state.user;
     },
+    token() {
+      return this.$store.state.jwt;
+    },
   },
   methods: {
     updateUserInfo() {
-      this.$store.dispatch("updateUserInfo", this.user);
+      this.$store.dispatch("updateUserInfo", {
+        id: this.user.id,
+        experience: this.experience,
+        availability: this.availability,
+        portUrl: this.portUrl,
+        githubUrl: this.githubUrl,
+        token: this.token,
+      });
     },
     deleteUser(id) {
       this.$store.dispatch("deleteUser", id);

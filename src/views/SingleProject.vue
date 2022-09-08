@@ -1,6 +1,6 @@
 <template>
   <div id="single" class="singleProjectCard" v-if="project && user">
-    <div class="alterBtns" v-if="project[0].postedBy === user.id">
+    <div v-if="user.userRole === 'admin' || 'client'">
       <button
         type="button"
         class="btn"
@@ -9,6 +9,8 @@
       >
         <i class="fa-solid fa-plus"></i>
       </button>
+    </div>
+    <div class="alterBtns" v-if="project[0].postedBy === user.id">
       <button
         type="button"
         class="btn"
@@ -104,16 +106,7 @@
                   >Level of Experience</label
                 >
               </div>
-              <div class="form-floating mb-3">
-                <input
-                  type="date"
-                  class="form-control"
-                  required
-                  v-model="deadline"
-                  id="floatingInput"
-                />
-                <label for="floatingInput">Deadline</label>
-              </div>
+
               <!-- Technology -->
               <div class="form-floating technology mb-3">
                 <select
@@ -215,16 +208,7 @@
                   >Level of Experience</label
                 >
               </div>
-              <div class="form-floating mb-3">
-                <input
-                  type="date"
-                  class="form-control"
-                  required
-                  v-model="deadline"
-                  id="floatingInput"
-                />
-                <label for="floatingInput">Deadline</label>
-              </div>
+
               <!-- Technology -->
               <div class="form-floating technology mb-3">
                 <select
@@ -277,9 +261,9 @@ export default {
   props: ["id"],
   data() {
     return {
+      title: "",
       description: "",
       type: "",
-      deadline: "",
       email: "",
       tech: "",
       postedBy: "",
