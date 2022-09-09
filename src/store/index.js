@@ -73,7 +73,8 @@ export default createStore({
     //USERS
     // GET SINGLE USER
     getUser: async (context, id) => {
-      fetch("http://localhost:3050/users/" + id)
+      fetch("https://yourdevconnect.herokuapp.com/users/" + id)
+        // fetch("http://localhost:3050/users/" + id)
         .then((res) => res.json())
         .then((data) => context.commit("setUser", data));
       // .then((json) => context.commit("setUser", json))
@@ -82,8 +83,8 @@ export default createStore({
 
     // GET ALL USERS
     getUsers: async (context) => {
-      // fetch("https://xcjewels.herokuapp.com/users")
-      fetch("http://localhost:3050/users/devs")
+      fetch("https://yourdevconnect.herokuapp.com/users/devs")
+        // fetch("http://localhost:3050/users/devs")
         .then((response) => response.json())
         .then((json) => context.commit("setUsers", json));
     },
@@ -91,8 +92,8 @@ export default createStore({
     // LOGIN
     login: async (context, payload) => {
       const { email, password } = payload;
-      // fetch(`https://xcjewels.herokuapp.com/users/login`, {
-      fetch(`http://localhost:3050/users/login`, {
+      fetch(`https://yourdevconnect.herokuapp.com/users/login`, {
+        // fetch(`http://localhost:3050/users/login`, {
         method: "POST",
         body: JSON.stringify(payload),
         headers: {
@@ -141,8 +142,8 @@ export default createStore({
 
     // REGISTER AS DEV
     devRegister: async (context, user) => {
-      // fetch("https://xcjewels.herokuapp.com/users/register", {
-      fetch("http://localhost:3050/users/register", {
+      fetch("https://yourdevconnect.herokuapp.com/users/register", {
+        // fetch("http://localhost:3050/users/register", {
         method: "POST",
         body: JSON.stringify(user),
         // mode: cors,
@@ -160,8 +161,8 @@ export default createStore({
 
     // REGISTER AS CLIENT
     clientRegister: async (context, user) => {
-      // fetch("https://xcjewels.herokuapp.com/users/register", {
-      fetch("http://localhost:3050/users/registerclient", {
+      fetch("https://yourdevconnect.herokuapp.com/users/registerclient", {
+        // fetch("http://localhost:3050/users/registerclient", {
         method: "POST",
         body: JSON.stringify(user),
         // mode: cors,
@@ -179,7 +180,8 @@ export default createStore({
 
     // DELETE A USER
     deleteUser: async (context, logUser) => {
-      fetch("http://localhost:3050/users/" + logUser.id, {
+      fetch("https://yourdevconnect.herokuapp.com/users/" + logUser.id, {
+        // fetch("http://localhost:3050/users/" + logUser.id, {
         method: "DELETE",
         headers: {
           "Content-type": "application/json; charset=UTF-8",
@@ -204,7 +206,8 @@ export default createStore({
         githubUrl,
         userRole,
       } = user;
-      fetch("http://localhost:3050/users/" + user.id, {
+      fetch("https://yourdevconnect.herokuapp.com/users/" + user.id, {
+        // fetch("http://localhost:3050/users/" + user.id, {
         method: "PATCH",
         body: JSON.stringify({
           fullname: fullname,
@@ -230,7 +233,8 @@ export default createStore({
     // PROJECTS
     // SHOW ALL OF EM PROJECTS
     getProjects: async (context) => {
-      fetch("http://localhost:3050/projects")
+      https: fetch("http://yourdevconnect.herokuapp.com/projects/")
+        // https: fetch("http://localhost:3050/projects")
         .then((response) => response.json())
         .then((json) => context.commit("setProjects", json));
     },
@@ -238,7 +242,8 @@ export default createStore({
     // SHOW ONE PROJECT
     getProject: async (context, id) => {
       console.log(id);
-      fetch("http://localhost:3050/projects/" + id)
+      fetch("http://yourdevconnect.herokuapp.com/projects/" + id)
+        // fetch("http://localhost:3050/projects/" + id)
         .then((response) => response.json())
         .then((data) => {
           console.log(data);
@@ -248,7 +253,8 @@ export default createStore({
 
     // ADD A PROJECT
     addProject: async (context, project) => {
-      fetch("http://localhost:3050/projects", {
+      fetch("http://yourdevconnect.herokuapp.com/projects", {
+        // fetch("http://localhost:3050/projects", {
         method: "POST",
         body: JSON.stringify(project),
         headers: {
@@ -261,7 +267,8 @@ export default createStore({
     },
     // DELETE A PROJECT
     deleteProject: async (context, project) => {
-      fetch("http://localhost:3050/projects/" + project.id, {
+      fetch("http://yourdevconnect.herokuapp.com/projects/" + project.id, {
+        // fetch("http://localhost:3050/projects/" + project.id, {
         method: "DELETE",
         headers: {
           "Content-type": "application/json; charset=UTF-8",
@@ -275,22 +282,26 @@ export default createStore({
     updateProject: async (context, project) => {
       console.log(project);
       const { title, description, type, tech, email, postedBy } = project;
-      fetch("http://localhost:3050/projects/updateitem/" + project.id, {
-        method: "PATCH",
-        body: JSON.stringify({
-          title: title,
-          description: description,
-          type: type,
-          tech: tech,
-          email: email,
-          postedBy: postedBy,
-          id: project.id,
-        }),
-        headers: {
-          "Content-type": "application/json; charset=UTF-8",
-          "x-auth-token": project.token,
-        },
-      })
+      fetch(
+        "http://yourdevconnect.herokuapp.com/projects/updateitem/" + project.id,
+        {
+          // fetch("http://localhost:3050/projects/updateitem/" + project.id, {
+          //   method: "PATCH",
+          body: JSON.stringify({
+            title: title,
+            description: description,
+            type: type,
+            tech: tech,
+            email: email,
+            postedBy: postedBy,
+            id: project.id,
+          }),
+          headers: {
+            "Content-type": "application/json; charset=UTF-8",
+            "x-auth-token": project.token,
+          },
+        }
+      )
         .then((response) => response.json())
         .then((json) => {
           context.commit("setProject", json);
