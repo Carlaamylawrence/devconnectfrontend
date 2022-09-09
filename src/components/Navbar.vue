@@ -8,16 +8,16 @@
       <li class="nav-link" @click="toggleNav()">
         <router-link to="/about">ABOUT</router-link>
       </li>
-      <li class="nav-link" @click="toggleNav()" v-if="user">
+      <li class="nav-link" @click="toggleNav()" v-if="logUser">
         <router-link to="/devs">DEVS</router-link>
       </li>
-      <li class="nav-link" @click="toggleNav()" v-if="user">
+      <li class="nav-link" @click="toggleNav()" v-if="logUser">
         <router-link to="/projects">PROJECTS</router-link>
       </li>
-      <li class="nav-link" @click="toggleNav()" v-if="user">
+      <li class="nav-link" @click="toggleNav()" v-if="logUser">
         <router-link to="/profile">PROFILE</router-link>
       </li>
-      
+
       <li class="nav-link" @click="toggleNav()" v-else>
         <router-link to="/login">LOGIN</router-link>
       </li>
@@ -45,11 +45,10 @@ export default {
     toggleNav() {
       this.isActive = !this.isActive;
     },
- 
   },
   computed: {
-    user() {
-      return this.$store.state.user;
+    logUser() {
+      return this.$store.state.logUser;
     },
   },
 };

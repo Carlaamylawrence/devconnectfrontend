@@ -1,6 +1,6 @@
 <template>
-  <div id="single" class="singleProjectCard" v-if="project && user">
-    <div v-if="user.userRole == 'admin' || user.userRole == 'client'">
+  <div id="single" class="singleProjectCard" v-if="project && logUser">
+    <div v-if="logUser.userRole == 'admin' || logUser.userRole == 'client'">
       <button
         type="button"
         class="btn"
@@ -17,7 +17,7 @@
       :key="project.project_id"
       :project="project"
     >
-      <div class="alterBtns" v-if="project.postedBy === user.id">
+      <div class="alterBtns" v-if="project.postedBy === logUser.id">
         <button
           type="button"
           class="btn"
@@ -199,7 +199,7 @@
                   required
                   v-model="description"
                   id="floatingInput"
-                  placeholder="Project description"
+                  placeholder="project.description"
                 />
               </div>
               <!-- Experience -->
@@ -209,9 +209,9 @@
                   aria-label="Default select example"
                   v-model="type"
                 >
-                  <option value="Junior">Junior</option>
-                  <option value="Mid">Mid-Level</option>
-                  <option value="Senior">Senior</option>
+                  <option value="Junior Developer">Junior</option>
+                  <option value="Mid-level Developer">Mid-Level</option>
+                  <option value="Senior Developer">Senior</option>
                 </select>
                 <label class="inputLabel" for="floatingColor"
                   >Level of Experience</label
@@ -288,6 +288,10 @@ export default {
       console.log(this.$store.state.user);
       return this.$store.state.user;
     },
+    logUser() {
+      console.log(this.$store.state.logUser);
+      return this.$store.state.logUser;
+    },
     token() {
       return this.$store.state.jwt;
     },
@@ -302,11 +306,14 @@ export default {
         title: this.title,
         description: this.description,
         type: this.type,
-        tech: this.type,
+        tech: this.tech,
         email: this.email,
         postedBy: this.user.id,
         token: this.token,
       });
+      setTimeout(() => {
+        this.$router.go();
+      }, 1000);
     },
     updateProject(id) {
       this.$store.dispatch("updateProject", {
@@ -314,7 +321,7 @@ export default {
         title: this.title,
         description: this.description,
         type: this.type,
-        tech: this.type,
+        tech: this.tech,
         email: this.email,
         token: this.token,
       });

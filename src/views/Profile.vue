@@ -1,19 +1,19 @@
 <template>
   <section id="container">
-    <div v-if="user.userRole === 'dev'">
+    <div v-if="logUser.userRole === 'dev'">
       <div class="profileGrid row">
         <div class="profilePicture col-lg-3">
           <img
             class="profilepicture mt-5 img-fluid"
             alt="profilepicture"
-            :src="user.avatar"
+            :src="logUser.avatar"
             style="max-width: 12rem"
           />
         </div>
 
         <div class="profileHeader col-lg-6">
           <h3>HI, I AM</h3>
-          <h2>{{ user.fullname }}</h2>
+          <h2>{{ logUser.fullname }}</h2>
         </div>
         <div class="editBtn">
           <!-- EDIT BUTTON -->
@@ -33,24 +33,26 @@
           </button>
         </div>
         <div class="logoutBtn">
-          <button type="button" class="btn"  @click="Logout()">
-            <router-link to="/"><i class="fa-solid fa-right-from-bracket"></i></router-link>
+          <button type="button" class="btn" @click="Logout()">
+            <router-link to="/"
+              ><i class="fa-solid fa-right-from-bracket"></i
+            ></router-link>
           </button>
         </div>
         <div class="profileInfo row">
           <div class="profileDetails col-lg-6">
-            <p>Location: {{ user.location }}</p>
-            <p>Fluent in: {{ user.technology }}</p>
-            <p>Availible for {{ user.availability }}</p>
-            <p>Experience: {{ user.experience }}</p>
+            <p>Location: {{ logUser.location }}</p>
+            <p>Fluent in: {{ logUser.technology }}</p>
+            <p>Availible for {{ logUser.availability }}</p>
+            <p>Experience: {{ logUser.experience }}</p>
           </div>
           <div class="profileAbout col-lg-6">
-            <p>{{ user.bio }}</p>
+            <p>{{ logUser.bio }}</p>
             <div class="exploreBtns">
-              <a :href="user.githubUrl" target="_blank"
+              <a :href="logUser.githubUrl" target="_blank"
                 ><button class="btn">Github</button></a
               >
-              <a :href="user.portUrl" target="_blank"
+              <a :href="logUser.portUrl" target="_blank"
                 ><button class="btn">Portfolio</button></a
               >
             </div>
@@ -58,38 +60,42 @@
         </div>
       </div>
     </div>
-    <div v-if="user.userRole === 'client' ">
+    <div v-if="logUser.userRole === 'client'">
       <div class="deleteBtn">
         <!-- DELETE BUTTON -->
-        <button type="button" class="btn" @click="deleteUser(user.id)">
+        <button type="button" class="btn" @click="deleteUser(logUser.id)">
           <i class="fa-solid fa-trash"></i>
         </button>
       </div>
       <div class="logoutBtn">
-          <button type="button" class="btn"  @click="Logout()">
-            <router-link to="/"><i class="fa-solid fa-right-from-bracket"></i></router-link>
-          </button>
-        </div>
+        <button type="button" class="btn" @click="Logout()">
+          <router-link to="/"
+            ><i class="fa-solid fa-right-from-bracket"></i
+          ></router-link>
+        </button>
+      </div>
       <div class="profileHeader col-lg-6">
         <h3>HI, I AM A CLIENT</h3>
-        <h2>{{ user.email }}</h2>
+        <h2>{{ logUser.email }}</h2>
       </div>
     </div>
-    <div v-if="user.userRole === 'admin'">
+    <div v-if="logUser.userRole === 'admin'">
       <div class="deleteBtn">
         <!-- DELETE BUTTON -->
-        <button type="button" class="btn" @click="deleteUser(user.id)">
+        <button type="button" class="btn" @click="deleteUser(logUser.id)">
           <i class="fa-solid fa-trash"></i>
         </button>
         <div class="logoutBtn">
-          <button type="button" class="btn"  @click="Logout()">
-            <router-link to="/"><i class="fa-solid fa-right-from-bracket"></i></router-link>
+          <button type="button" class="btn" @click="Logout()">
+            <router-link to="/"
+              ><i class="fa-solid fa-right-from-bracket"></i
+            ></router-link>
           </button>
         </div>
       </div>
       <div class="profileHeader col-lg-6">
         <h3>HI, I AM AN ADMIN</h3>
-        <h2>{{ user.email }}</h2>
+        <h2>{{ logUser.email }}</h2>
       </div>
     </div>
   </section>
@@ -190,18 +196,17 @@ export default {
     };
   },
   computed: {
-    user() {
-      return this.$store.state.user;
+    logUser() {
+      return this.$store.state.logUser;
     },
     token() {
       return this.$store.state.jwt;
     },
-   
   },
   methods: {
     updateUserInfo() {
       this.$store.dispatch("updateUserInfo", {
-        id: this.user.id,
+        id: this.logUser.id,
         experience: this.experience,
         availability: this.availability,
         portUrl: this.portUrl,
@@ -212,9 +217,11 @@ export default {
     deleteUser(id) {
       this.$store.dispatch("deleteUser", { id: id, token: this.token });
     },
-    //     Logout() {
-    //   this.$store.dispatch("logout");
-    // },
+    Logout() {
+      console.log("goodbye, see you later");
+      this.$store.commit("Logout");
+      this.$router.push("/");
+    },
   },
 };
 </script>

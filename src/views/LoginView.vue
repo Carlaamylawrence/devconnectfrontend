@@ -36,14 +36,12 @@
 
           <!-- Button to submit  -->
           <div class="loginBtn">
-            <button type="submit" class="btn mt-2 " value="Login">
-              LOGIN
-            </button>
+            <button type="submit" class="btn mt-2" value="Login">LOGIN</button>
           </div>
         </form>
         <div v-if="user" class="welcomeUser">
           <p>Welcome</p>
-          <h3>{{ user.fullname }}</h3>
+          <h3>{{ logUser.fullname }}</h3>
         </div>
         <div v-else>
           <div class="registerBox">
@@ -65,8 +63,8 @@
 <script>
 export default {
   computed: {
-    user() {
-      return this.$store.state.user;
+    logUser() {
+      return this.$store.state.logUser;
     },
   },
   data() {
@@ -81,6 +79,7 @@ export default {
         email: this.email,
         password: this.password,
       });
+      this.$router.push("/devs");
     },
   },
 };

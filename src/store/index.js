@@ -1,8 +1,11 @@
+import Swal from "sweetalert2";
 import { createStore } from "vuex";
+import createPersistedState from "vuex-persistedstate";
 
 export default createStore({
   state: {
     user: null,
+    logUser: null,
     users: null,
     project: null,
     projects: null,
@@ -12,16 +15,14 @@ export default createStore({
   },
   getters: {},
   mutations: {
-    // logout:(state)=>{
-    //   state.user= "",
-    //   state.jwt= "",
-    //   state.users= "";
-    // },
     setJwt: (state, jwt) => {
       state.jwt = jwt;
     },
     setUser: (state, user) => {
       state.user = user;
+    },
+    setLogUser: (state, logUser) => {
+      state.logUser = logUser;
     },
     setUsers: (state, users) => {
       state.users = users;
@@ -64,6 +65,9 @@ export default createStore({
       }
       state.asc = !state.asc;
     },
+    Logout(state) {
+      (state.logUser = ""), (state.token = "");
+    },
   },
   actions: {
     //USERS
@@ -84,10 +88,9 @@ export default createStore({
         .then((json) => context.commit("setUsers", json));
     },
 
-  
     // LOGIN
     login: async (context, payload) => {
-      // const { email, password } = payload;
+      const { email, password } = payload;
       // fetch(`https://xcjewels.herokuapp.com/users/login`, {
       fetch(`http://localhost:3050/users/login`, {
         method: "POST",
@@ -98,9 +101,34 @@ export default createStore({
       })
         .then((res) => res.json())
         .then((data) => {
-          console.log(data);
+          // console.log(data);
           context.commit("setJwt", data.token);
-          context.commit("setUser", data.user);
+          context.commit("setLogUser", data.user);
+          if (data.msg === "Email Not Found") {
+            Swal({
+              title: "Oops!",
+              text: "Email is incorrect",
+              icon: "error",
+            });
+          } else if (data.msg === "Password Incorrect") {
+            Swal({
+              title: "Oops!",
+              text: "Password is incorrect",
+              icon: "error",
+            });
+          } else {
+            fetch("http://localhost:3050/users/user/verify", {
+              headers: {
+                "Content-type": "application/json; charset=UTF-8",
+                "x-auth-token": user.token,
+              },
+            })
+              .then((res) => res.json())
+              .then((user) => {
+                console.log(user);
+                context.commit("setUser", user);
+              });
+          }
         });
     },
 
@@ -266,4 +294,5 @@ export default createStore({
   },
 
   modules: {},
+  plugins: [createPersistedState()],
 });

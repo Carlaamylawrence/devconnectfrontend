@@ -23,7 +23,7 @@
           <option value="Ruby">Ruby</option>
         </select>
       </div>
-      <div class="devGrid" v-if="user">
+      <div class="devGrid" v-if="logUser">
         <AllProfiles v-for="user in users" :key="user.id" :user="user" />
       </div>
       <div class="loader" v-else>
@@ -61,6 +61,9 @@ export default {
     },
     user() {
       return this.$store.state.user;
+    },
+    logUser() {
+      return this.$store.state.logUser;
     },
   },
   mounted() {
