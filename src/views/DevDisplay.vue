@@ -28,7 +28,10 @@
       </div>
       <div class="loader" v-else>
         <div class="logoDEV">
-          <img class="logo" src="https://i.postimg.cc/KzHmWhRs/logo.png" />
+          <img
+            class="logo floatingImage"
+            src="https://i.postimg.cc/KzHmWhRs/logo.png"
+          />
         </div>
       </div>
     </div>

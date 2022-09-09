@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <section class="container">
     <div class="registerSection row">
       <div class="clientAbout col-lg-6">
         <h2 class="registerClientAbout">I AM A CLIENT</h2>
@@ -79,18 +79,21 @@
           <!-- Button to submit  -->
           <button type="submit" class="btn" value="Register">REGISTER</button>
         </form>
-        <div v-if="user">
-          Welcome {{ user.fullname }}, Your sign up was successsul
+        <div v-if="logUser">
+          Welcome {{ logUser.fullname }}, Your sign up was successsul
         </div>
       </div>
     </div>
-  </div>
+  </section>
 </template>
 <script>
 export default {
   computed: {
     user() {
       return this.$store.state.user;
+    },
+    logUser() {
+      return this.$store.state.logUser;
     },
   },
   data() {
@@ -103,13 +106,13 @@ export default {
   },
   methods: {
     clientRegister() {
-      let user = {
+      let logUser = {
         fullname: this.fullname,
         email: this.email,
         password: this.password,
         userRole: this.userRole,
       };
-      this.$store.dispatch("clientRegister", user);
+      this.$store.dispatch("clientRegister", logUser);
     },
   },
 };

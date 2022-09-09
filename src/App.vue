@@ -32,7 +32,6 @@ body {
   font-family: "League Spartan", sans-serif;
   overflow-x: hidden;
   min-height: 100vh;
-  
 }
 
 h2 {
@@ -64,14 +63,14 @@ section {
   padding-left: 8rem;
   padding-right: 8rem;
   padding-bottom: 4rem;
-  background-image: linear-gradient(
+  /* background-image: linear-gradient(
     to right bottom,
     #274d84,
     #25669f,
     #2080ba,
     #189bd3,
     #13b6ea
-  );
+  ); */
 }
 
 .btn:hover {

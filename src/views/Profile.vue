@@ -61,41 +61,63 @@
       </div>
     </div>
     <div v-if="logUser.userRole === 'client'">
-      <div class="deleteBtn">
-        <!-- DELETE BUTTON -->
-        <button type="button" class="btn" @click="deleteUser(logUser.id)">
-          <i class="fa-solid fa-trash"></i>
-        </button>
-      </div>
-      <div class="logoutBtn">
-        <button type="button" class="btn" @click="Logout()">
-          <router-link to="/"
-            ><i class="fa-solid fa-right-from-bracket"></i
-          ></router-link>
-        </button>
-      </div>
-      <div class="profileHeader col-lg-6">
-        <h3>HI, I AM A CLIENT</h3>
-        <h2>{{ logUser.email }}</h2>
+      <div class="dashboard row">
+        <div class="sideDash col-lg-4">
+          <!-- DELETE BUTTON -->
+          <div class="deleteBtn">
+            <button type="button" class="btn" @click="deleteUser(logUser.id)">
+              <i class="fa-solid fa-trash"></i>
+            </button>
+          </div>
+          <div class="logoutBtn">
+            <button type="button" class="btn" @click="Logout()">
+              <router-link to="/"
+                ><i class="fa-solid fa-right-from-bracket"></i
+              ></router-link>
+            </button>
+          </div>
+          <img
+            class="img-fluid"
+            src="https://i.postimg.cc/Bb54TW5S/client.png"
+          />
+        </div>
+        <div class="mainDash col-lg-6">
+          <div class="profileHeader">
+            <h3>HI, I AM A {{ logUser.userRole }}</h3>
+            <h2>{{ logUser.email }}</h2>
+            <p>{{ logUser.fullname }}</p>
+          </div>
+        </div>
       </div>
     </div>
     <div v-if="logUser.userRole === 'admin'">
-      <div class="deleteBtn">
-        <!-- DELETE BUTTON -->
-        <button type="button" class="btn" @click="deleteUser(logUser.id)">
-          <i class="fa-solid fa-trash"></i>
-        </button>
-        <div class="logoutBtn">
-          <button type="button" class="btn" @click="Logout()">
-            <router-link to="/"
-              ><i class="fa-solid fa-right-from-bracket"></i
-            ></router-link>
-          </button>
+      <div class="dashboard row">
+        <div class="sideDash col-lg-4">
+          <!-- DELETE BUTTON -->
+          <div class="deleteBtn">
+            <button type="button" class="btn" @click="deleteUser(logUser.id)">
+              <i class="fa-solid fa-trash"></i>
+            </button>
+          </div>
+          <div class="logoutBtn">
+            <button type="button" class="btn" @click="Logout()">
+              <router-link to="/"
+                ><i class="fa-solid fa-right-from-bracket"></i
+              ></router-link>
+            </button>
+          </div>
+          <img
+            class="img-fluid"
+            src="https://i.postimg.cc/v8PjkN4c/admin.png"
+          />
         </div>
-      </div>
-      <div class="profileHeader col-lg-6">
-        <h3>HI, I AM AN ADMIN</h3>
-        <h2>{{ logUser.email }}</h2>
+        <div class="mainDash col-lg-6">
+          <div class="profileHeader">
+            <h3>HI, I AM A {{ logUser.userRole }}</h3>
+            <h2>{{ logUser.email }}</h2>
+            <p>{{ logUser.fullname }}</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>

@@ -5,22 +5,33 @@
         <div class="logoDEV">
           <img
             class="floatingImage img-fluid"
-            src="https://i.postimg.cc/sDSBX8YS/E8432-FAB-AFBC-4-FF1-82-DE-9-E0244799-FB8.png"
+            src="https://i.postimg.cc/vHkBvXMV/D21-BED42-DA59-4-FA0-9764-4-E2-FABEC1203.png"
           />
         </div>
       </div>
-      <div class="landingInfo col-lg-6">
-        <div class="devConnect">
-          <img
-            class="logo img-fluid"
-            src="https://i.postimg.cc/KzHmWhRs/logo.png"
-          />
+      <div class="landingInfo col-lg-6" v-if="logUser">
+        <div class="directBox">
+          <h3 class="pt-2 text-center">FIND OUT MORE</h3>
+          <div class="registerBtns">
+            <router-link to="/about"
+              ><button class="btn">ABOUT US</button></router-link
+            >
+            <router-link to="/contact"
+              ><button class="btn">CONTACT US</button></router-link
+            >
+          </div>
         </div>
-        <!-- <div class="login-btn">
-          <router-link to="/login"
-            ><button class="btn">LOGIN</button></router-link
-          >
-        </div> -->
+      </div>
+      <!-- IF NOT LOGGED IN -->
+      <div class="landingInfo col-lg-6" v-else>
+        <div class="loginBox">
+          <h3 class="pt-2 text-center">LOGIN</h3>
+          <div class="loginBtnDirect">
+            <router-link to="/login"
+              ><button class="btn">LOGIN</button></router-link
+            >
+          </div>
+        </div>
         <div class="registerBox">
           <h3 class="pt-2 text-center">SIGN UP TODAY</h3>
           <div class="registerBtns">
@@ -42,12 +53,17 @@
   </section>
 </template>
 <script>
-export default {};
+export default {
+  computed: {
+    logUser() {
+      return this.$store.state.logUser;
+    },
+  },
+};
 </script>
 <style>
 .landingContainer {
   height: 90vh;
-  overflow-x: hidden;
   /* background-image: url("https://i.postimg.cc/mDCqw77q/1.png"); */
   background-position: center;
   background-repeat: no-repeat;

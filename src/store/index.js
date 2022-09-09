@@ -105,13 +105,13 @@ export default createStore({
           context.commit("setJwt", data.token);
           context.commit("setLogUser", data.user);
           if (data.msg === "Email Not Found") {
-            Swal({
+            Swal.fire({
               title: "Oops!",
               text: "Email is incorrect",
               icon: "error",
             });
           } else if (data.msg === "Password Incorrect") {
-            Swal({
+            Swal.fire({
               title: "Oops!",
               text: "Password is incorrect",
               icon: "error",
@@ -127,6 +127,13 @@ export default createStore({
               .then((user) => {
                 console.log(user);
                 context.commit("setUser", user);
+                if (data.msg === "Login Successful") {
+                  Swal.fire({
+                    title: "Hooray",
+                    text: "Login succesful",
+                    icon: "success",
+                  });
+                }
               });
           }
         });

@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <section id="container">
     <div class="registerSection row">
       <div class="devAbout col-lg-6">
         <h2 class="registerDevAbout">I AM A DEV</h2>
@@ -194,7 +194,7 @@
         </div>
       </div>
     </div>
-  </div>
+  </section>
 </template>
 <script>
 export default {
@@ -250,10 +250,10 @@ export default {
 .devAbout {
   max-width: 440px;
   margin: auto;
-  overflow-y: auto;
+
   position: relative;
   z-index: 1;
-  overflow-x: hidden;
+
   background-color: rgb(255 255 255 / 9%);
   display: flex;
   transition: 0.3s;
