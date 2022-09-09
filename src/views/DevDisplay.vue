@@ -102,9 +102,10 @@ export default {
 }
 
 .devGrid {
+  margin-top: 2rem;
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 4rem;
   justify-content: center;
 }
 </style>

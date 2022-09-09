@@ -17,9 +17,12 @@ export default {
 
 <style>
 :root {
-  --color1: #4d76c7;
+  --color1: #193948;
   --color2: whitesmoke;
-  --color3: #e77755;
+  --color3: #e76266;
+  --color4: #6baef5;
+  --color5: #1a1a1a;
+
   --background-color: #4d76c7;
 }
 * {
@@ -44,16 +47,16 @@ h2 {
 h3,
 h4,
 h5 {
-  color: var(--color3);
+  color: var(--color4);
   font-family: "League Spartan", sans-serif;
 }
 .btn {
   font-family: "League Spartan", sans-serif;
   height: 2rem;
-  background-color: var(--color3);
+  background-color: var(--color5);
   padding: 5px;
   transition: transform 0.2s ease-out;
-  box-shadow: 0px 3px 1px rgb(63, 79, 131);
+  box-shadow: 0px 3px 1px var(--color4);
   color: var(--color2);
 }
 
@@ -63,6 +66,7 @@ section {
   padding-left: 8rem;
   padding-right: 8rem;
   padding-bottom: 4rem;
+  background-color: #1a1a1a;
   /* background-image: linear-gradient(
     to right bottom,
     #274d84,
@@ -80,11 +84,11 @@ section {
 }
 
 .inputLabel {
-  color: rgb(90, 118, 209) !important;
+  color: var(--color1) !important;
 }
 
 ::placeholder {
-  color: rgb(90, 118, 209) !important;
+  color: var(--color1) !important;
 }
 
 p {
