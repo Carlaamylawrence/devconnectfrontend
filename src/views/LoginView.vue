@@ -84,18 +84,24 @@ export default {
   },
 };
 </script>
-<style scoped>
+<style >
 .loginContainer {
   display: flex;
   justify-content: center;
   align-items: center;
-  /* background-image: url("https://i.postimg.cc/2ySxr5DT/4.png"); */
-  height: 90vh;
+
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
 }
 
+.loginPicture{
+    object-fit: contain;
+  aspect-ratio: 1;
+   filter: drop-shadow(0px 1px 3px rgb(55, 51, 68));
+  width: 100%;
+  max-height: 22rem;
+}
 .loginCard {
   max-width: 300px;
   z-index: 1;
@@ -103,13 +109,13 @@ export default {
   transition: 0.3s;
 
   border-radius: 10px;
-  box-shadow: 0 0 0 8px rgba(192, 166, 198, 0.659);
+  box-shadow: 0 0 0 8px rgba(65, 115, 190, 0.659);
   padding: 2rem;
+  margin-top:1rem;
 }
 
-h3,
-p {
-  color: whitesmoke;
+h3 {
+  color: var(--color1);
 }
 .btn {
   font-family: "League Spartan", sans-serif;
@@ -127,9 +133,9 @@ p {
 .welcomeUser {
   display: flex;
 }
-::placeholder {
+/* ::placeholder {
   color: purple !important;
-}
+} */
 .loginBtn {
   display: flex;
   justify-content: center;

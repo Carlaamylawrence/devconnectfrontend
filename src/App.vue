@@ -88,7 +88,8 @@ section {
 }
 
 ::placeholder {
-  color: var(--color1) !important;
+   color: #56a1f4 !important;
+
 }
 
 p {
