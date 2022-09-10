@@ -1,8 +1,8 @@
 <template>
   <section id="container">
     <div class="about p-5 row">
-      <div class="who col-lg-6">
-        <h2>WHAT IS DEVCONNECT?</h2>
+      <div class="who col-lg-6 text-center">
+        <h2 >WHAT IS DEVCONNECT?</h2>
         <h4>
           Do you need a team of expert developers? Or are you looking for a new
           project?
@@ -24,7 +24,7 @@
           and provide the deadline and experience needed.
         </p>
       </div>
-      <div class="why col-lg-6 d-flex justify-content-center">
+      <div class="why col-lg-6 d-flex justify-content-center align-items-center">
         <img
           src="https://i.postimg.cc/xjp1q5B9/358939-CF-F916-4-C1-F-8-C71-E52-E0495629-C.png"
           class="aboutImage img-fluid"
@@ -53,5 +53,16 @@ export default {};
 .aboutImage {
   object-fit: contain;
   aspect-ratio: 1;
+   filter: drop-shadow(0px 1px 3px rgb(55, 51, 68));
+  width: 100%;
+  max-height: 22rem;
+
+}
+
+@media only screen and (max-width: 425px){
+	h2{
+    font-size: 6vw;
+   transition: all 0.3s linear;
+  }
 }
 </style>

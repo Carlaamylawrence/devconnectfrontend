@@ -25,7 +25,7 @@
       <!-- IF NOT LOGGED IN -->
       <div class="landingInfo col-lg-6" v-else>
         <div class="loginBox">
-          <h3 class="pt-2 text-center">LOGIN</h3>
+          <h2 class="pt-2 text-center">LOGIN</h2>
           <div class="loginBtnDirect">
             <router-link to="/login"
               ><button class="btn">LOGIN</button></router-link
@@ -33,7 +33,7 @@
           </div>
         </div>
         <div class="registerBox">
-          <h3 class="pt-2 text-center">SIGN UP TODAY</h3>
+          <h2 class="pt-2 text-center">SIGN UP TODAY</h2>
           <div class="registerBtns">
             <router-link to="/dev"
               ><button class="btn">I AM A DEV</button></router-link
@@ -125,7 +125,7 @@ export default {
     transform: translatey(0px);
   }
 }
-.login-btn {
+.loginBtnDirect {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -138,5 +138,8 @@ export default {
 a.aboutRedirect {
   color: var(--color3);
   font-size: 1rem;
+}
+h2{
+  font-size: 8vw !important;
 }
 </style>
