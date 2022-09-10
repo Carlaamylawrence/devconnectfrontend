@@ -66,7 +66,7 @@ section {
   padding-left: 8rem;
   padding-right: 8rem;
   padding-bottom: 4rem;
-  background-color: #1a1a1a;
+  background-color: white;
   /* background-image: linear-gradient(
     to right bottom,
     #274d84,

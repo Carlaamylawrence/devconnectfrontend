@@ -16,6 +16,7 @@
               class="form-control"
               required
               placeholder="Your Fullname"
+              name="Fullname"
             />
           </div>
           <div class="form-floating mb-3">
@@ -24,6 +25,7 @@
               class="form-control"
               required
               placeholder="Your Email"
+              name="Email"
             />
           </div>
           <div class="form-floating mb-3">
@@ -32,6 +34,7 @@
               placeholder="Let us know whats up here"
               id="floatingTextarea"
               style="height: 100px"
+              name="message"
             ></textarea>
           </div>
           <!-- your other form fields go here -->
