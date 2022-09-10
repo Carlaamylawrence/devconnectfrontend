@@ -7,15 +7,15 @@
           src="https://i.postimg.cc/0jrqJrs4/90286-FF9-8-DC0-43-AA-8422-C7-CA973-A09-A0.png"
         />
       </div>
-      <div class="contactCard col-lg-6">
-        <h2>CONTACT US</h2>
+      <div class="contactCard col-lg-6 mt-2">
+        <h2 class="text-center">CONTACT US</h2>
         <form action="https://formspree.io/f/mrgdekgn" method="POST">
           <div class="form-floating mb-3">
             <input
               type="text"
               class="form-control"
               required
-              placeholder="Your Fullname"
+              placeholder="YOUR FULL NAME"
               name="Fullname"
             />
           </div>
@@ -24,21 +24,23 @@
               type="email"
               class="form-control"
               required
-              placeholder="Your Email"
+              placeholder="YOUR EMAIL"
               name="Email"
             />
           </div>
           <div class="form-floating mb-3">
             <textarea
               class="form-control"
-              placeholder="Let us know whats up here"
+              placeholder="LEAVE YOUR MESSAGE HERE"
               id="floatingTextarea"
               style="height: 100px"
               name="message"
             ></textarea>
           </div>
           <!-- your other form fields go here -->
-          <button class="btn" type="submit">Send</button>
+          <div class="contactSendBtn ">
+          <button class="btn" type="submit">SEND <i class="fa-solid fa-paper-plane"></i></button>
+          </div>
         </form>
       </div>
     </div>
@@ -65,10 +67,22 @@ export default {};
   display: flex;
   justify-content: center;
   align-content: center;
+  flex-wrap: wrap;
 }
 .phoneImage {
   filter: drop-shadow(0px 10px 3px rgb(199, 104, 214));
-  min-width: 12rem;
-  min-height: 8rem;
+  width: 100%;
+  max-height: 22rem;
+  object-fit: contain;
+}
+
+.contactSendBtn{
+  display:flex;
+  justify-content: center;
+  align-items:center ;
+}
+
+::placeholder {
+  color: #56a1f4 !important;
 }
 </style>

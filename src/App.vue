@@ -63,8 +63,8 @@ h5 {
 section {
   min-height: 100vh;
   padding-top: 4rem;
-  padding-left: 8rem;
-  padding-right: 8rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
   padding-bottom: 4rem;
   background-color: white;
   /* background-image: linear-gradient(
