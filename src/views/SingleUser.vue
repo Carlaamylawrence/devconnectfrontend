@@ -65,7 +65,7 @@
             </div>
           </div>
         </div>
-        <div class="d-flex justify-content-center">
+        <div class="pillTabsAlign">
           <div
             class="nav d-flex nav-pills me-3 special-list"
             id="v-pills-tab"
@@ -73,7 +73,7 @@
             aria-orientation="vertical"
           >
             <button
-              class="nav-link active"
+              class="nav-link active text-center"
               id="buyone-tab"
               data-bs-toggle="pill"
               data-bs-target="#buyone"
@@ -85,7 +85,7 @@
               ABOUT
             </button>
             <button
-              class="nav-link"
+              class="nav-link text-center"
               id="happyhour-tab"
               data-bs-toggle="pill"
               data-bs-target="#happyhour"
@@ -97,7 +97,7 @@
               CHECK ME OUT
             </button>
             <button
-              class="nav-link"
+              class="nav-link text-center"
               id="freemeal-tab"
               data-bs-toggle="pill"
               data-bs-target="#freemeal"
@@ -146,6 +146,10 @@ export default {
   box-shadow: 0 0 0 8px rgba(255, 255, 255, 0.2);
 }
 
+.pillTabsAlign {
+  display: flex;
+  justify-content: center;
+}
 .nav-link {
   color: black;
 }
@@ -182,5 +186,14 @@ export default {
   filter: drop-shadow(0px 1px 3px rgb(55, 51, 68));
   width: 100%;
   max-height: 22rem;
+}
+
+@media only screen and (max-width: 425px) {
+  .pillTabsAlign {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 }
 </style>
