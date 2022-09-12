@@ -4,7 +4,7 @@
       <div class="profileGrid row">
         <div class="profilePicture col-lg-3">
           <img
-            class="profilepicture mt-5 img-fluid"
+            class="profilePicture mt-5 img-fluid"
             alt="profilepicture"
             :src="logUser.avatar"
             style="max-width: 12rem"
@@ -15,29 +15,31 @@
           <h3>HI, I AM</h3>
           <h2>{{ logUser.fullname }}</h2>
         </div>
-        <div class="editBtn">
-          <!-- EDIT BUTTON -->
-          <button
-            type="button"
-            class="btn"
-            data-bs-toggle="modal"
-            data-bs-target="#exampleModal"
-          >
-            <i class="fa-solid fa-gear"></i>
-          </button>
-        </div>
-        <div class="deleteBtn">
-          <!-- DELETE BUTTON -->
-          <button type="button" class="btn" @click="deleteUser(id)">
-            <i class="fa-solid fa-trash"></i>
-          </button>
-        </div>
-        <div class="logoutBtn">
-          <button type="button" class="btn" @click="Logout()">
-            <router-link to="/"
-              ><i class="fa-solid fa-right-from-bracket"></i
-            ></router-link>
-          </button>
+        <div class="profileActionButtons">
+          <div class="editBtn">
+            <!-- EDIT BUTTON -->
+            <button
+              type="button"
+              class="btn"
+              data-bs-toggle="modal"
+              data-bs-target="#exampleModal"
+            >
+              <i class="fa-solid fa-gear"></i>
+            </button>
+          </div>
+          <div class="deleteBtn">
+            <!-- DELETE BUTTON -->
+            <button type="button" class="btn" @click="deleteUser(id)">
+              <i class="fa-solid fa-trash"></i>
+            </button>
+          </div>
+          <div class="logoutBtn">
+            <button type="button" class="btn" @click="Logout()">
+              <router-link to="/"
+                ><i class="fa-solid fa-right-from-bracket"></i
+              ></router-link>
+            </button>
+          </div>
         </div>
         <div class="profileInfo row">
           <div class="profileDetails col-lg-6">
@@ -63,21 +65,23 @@
     <div v-if="logUser.userRole === 'client'">
       <div class="dashboard row">
         <div class="sideDash col-lg-4">
-          <!-- DELETE BUTTON -->
-          <div class="deleteBtn">
-            <button type="button" class="btn" @click="deleteUser(logUser.id)">
-              <i class="fa-solid fa-trash"></i>
-            </button>
-          </div>
-          <div class="logoutBtn">
-            <button type="button" class="btn" @click="Logout()">
-              <router-link to="/"
-                ><i class="fa-solid fa-right-from-bracket"></i
-              ></router-link>
-            </button>
+          <div class="profileActionButtons">
+            <!-- DELETE BUTTON -->
+            <div class="deleteBtn">
+              <button type="button" class="btn" @click="deleteUser(logUser.id)">
+                <i class="fa-solid fa-trash"></i>
+              </button>
+            </div>
+            <div class="logoutBtn">
+              <button type="button" class="btn" @click="Logout()">
+                <router-link to="/"
+                  ><i class="fa-solid fa-right-from-bracket"></i
+                ></router-link>
+              </button>
+            </div>
           </div>
           <img
-            class="img-fluid"
+            class="clientImage img-fluid"
             src="https://i.postimg.cc/Bb54TW5S/client.png"
           />
         </div>
@@ -94,20 +98,22 @@
       <div class="dashboard row">
         <div class="sideDash col-lg-4">
           <!-- DELETE BUTTON -->
-          <div class="deleteBtn">
-            <button type="button" class="btn" @click="deleteUser(logUser.id)">
-              <i class="fa-solid fa-trash"></i>
-            </button>
-          </div>
-          <div class="logoutBtn">
-            <button type="button" class="btn" @click="Logout()">
-              <router-link to="/"
-                ><i class="fa-solid fa-right-from-bracket"></i
-              ></router-link>
-            </button>
+          <div class="profileActionButtons">
+            <div class="deleteBtn">
+              <button type="button" class="btn" @click="deleteUser(logUser.id)">
+                <i class="fa-solid fa-trash"></i>
+              </button>
+            </div>
+            <div class="logoutBtn">
+              <button type="button" class="btn" @click="Logout()">
+                <router-link to="/"
+                  ><i class="fa-solid fa-right-from-bracket"></i
+                ></router-link>
+              </button>
+            </div>
           </div>
           <img
-            class="img-fluid"
+            class="adminImage img-fluid"
             src="https://i.postimg.cc/v8PjkN4c/admin.png"
           />
         </div>
@@ -288,5 +294,18 @@ export default {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+.profileActionButtons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+}
+.adminImage,
+.clientImage {
+  object-fit: contain;
+  aspect-ratio: 1;
+  filter: drop-shadow(0px 1px 3px rgb(55, 51, 68));
+  width: 100%;
+  max-height: 22rem;
 }
 </style>
