@@ -139,7 +139,7 @@ a.aboutRedirect {
   color: var(--color3);
   font-size: 1rem;
 }
-h2{
-  font-size: 8vw !important;
+h2 {
+  font-size: 7vw !important;
 }
 </style>

@@ -4,7 +4,7 @@
       <div class="container" v-for="user of user" :key="user.id" :user="user">
         <div class="profilePhoto">
           <img
-            class="profilepicture mt-5"
+            class="profilePicture mt-5"
             alt="profilepicture"
             :src="user.avatar"
           />
@@ -22,7 +22,7 @@
             aria-labelledby="buyone-tab"
           >
             <div class="row d-flex flex-wrap">
-              <div class="col">
+              <div class="col text-center">
                 <h5>{{ user.location }}</h5>
                 <p>{{ user.bio }}</p>
               </div>
@@ -35,7 +35,7 @@
             aria-labelledby="happyhour-tab"
           >
             <div class="row d-flex flex-wrap">
-              <div class="col">
+              <div class="col text-center mb-2">
                 <p>{{ user.technology }}</p>
                 <p>{{ user.experience }}</p>
                 <a :href="user.githubUrl" target="_blank"
@@ -54,7 +54,7 @@
             aria-labelledby="freemeal-tab"
           >
             <div class="row d-flex flex-wrap">
-              <div class="col">
+              <div class="col text-center">
                 <p>{{ user.availability }}</p>
                 <p>
                   If you would like to collaborate on your next project let me
@@ -153,11 +153,11 @@ export default {
 .nav-pills .nav-link.active,
 .nav-pills .show > .nav-link {
   background: #ffffff;
-  background-image: -webkit-linear-gradient(top, #ffffff, #a762df);
-  background-image: -moz-linear-gradient(top, #ffffff, #a762df);
-  background-image: -ms-linear-gradient(top, #ffffff, #a762df);
-  background-image: -o-linear-gradient(top, #ffffff, #a762df);
-  background-image: linear-gradient(to bottom, #ffffff, #a762df);
+  background-image: -webkit-linear-gradient(top, #ffffff, #ed6928);
+  background-image: -moz-linear-gradient(top, #ffffff, #ed6928);
+  background-image: -ms-linear-gradient(top, #ffffff, #ed6928);
+  background-image: -o-linear-gradient(top, #ffffff, #ed6928);
+  background-image: linear-gradient(to bottom, #ffffff, #ed6928);
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
   border-radius: 0px;
@@ -173,6 +173,14 @@ export default {
   /* border-radius: 0.25rem; */
 }
 .nav-link:hover {
-  color: #a762df;
+  color: #ed6928;
+}
+
+.profilePicture {
+  object-fit: contain;
+  aspect-ratio: 1;
+  filter: drop-shadow(0px 1px 3px rgb(55, 51, 68));
+  width: 100%;
+  max-height: 22rem;
 }
 </style>
